@@ -1,0 +1,29 @@
+<div class="color-overlay"></div>
+<video autoplay muted loop class="header-bg__video" controls>
+  <source src="{{ sourceVideo }}" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+<div class="header" id="home">
+  <div class="header-page">
+    <div class=" logo-container">
+      <h1 class="logo">Bikeshop</h1>
+    </div>
+    <nav class="header-nav" id="navbar" [ngClass]="{'open' : navbarOpen}">
+      <button class="dropdown-button" id="menu-button" (click)="showNavbar()" [ngClass]="{'transform' : navbarOpen}">
+        <ion-icon name="caret-forward-outline" class="menu-button"></ion-icon>
+      </button>
+      <ul class="header-nav__list" [ngClass]="{'transform-list' : navbarOpen}">
+        <li class="header-nav__item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+          true}">
+          <a [routerLink]="['/']" class="header-nav__item-link">MAIN PAGE</a>
+        </li>
+        <li class="header-nav__item" routerLinkActive="active">
+          <a [routerLink]="['/contact']" class="header-nav__item-link">CONTACT US</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

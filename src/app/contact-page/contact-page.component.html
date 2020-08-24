@@ -1,0 +1,14 @@
+<div class="contact-page">
+  <h1>{{title}}</h1>
+
+  <ul class="contact-details" *ngFor="let address of address">
+    <li>Country: {{address.country}}</li>
+    <li>City: {{address.city}}</li>
+    <li>Address: {{address.address}}</li>
+    <li>ZIP: {{address.zipCode}}</li>
+  </ul>
+
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</div>

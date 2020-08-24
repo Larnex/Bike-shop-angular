@@ -1,0 +1,16 @@
+<div class="header-content">
+  <h1 class="header__title">
+    Products
+  </h1>
+  <carousel height="100%" width="750" cellWidth="500" loop="true" pauseOnHover="true" autoplay="true"
+    autoplayInterval="5000">
+    <div class="carousel-cell" *ngFor="let product of goods">
+      <div class="content-container">
+        <h2>{{ product.name }}</h2>
+        <h3>{{ product.price }}</h3>
+        <img src="{{ product.imgSrc }}" style="max-height:40rem; max-width:40rem" />
+        <button class="bubbly-button">BUY NOW!</button>
+      </div>
+    </div>
+  </carousel>
+</div>
