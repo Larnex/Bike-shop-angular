@@ -7,7 +7,7 @@ import { TitleCasePipe } from '@angular/common';
   styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent implements OnInit {
-  sourceVideo = '../../../assets/bike.mp4';
+  sourceVideo = '../../../assets/images/bike.mp4';
   navbarOpen: boolean = false;
   public innerWidth: any;
   constructor() {}

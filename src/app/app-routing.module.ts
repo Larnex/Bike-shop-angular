@@ -9,7 +9,6 @@ const routes: Routes = [
     path: '',
     component: MainLayoutComponent,
     children: [
-      { path: '', redirectTo: '/', pathMatch: 'full' },
       { path: '', component: MainPageComponent },
       { path: 'contact', component: ContactPageComponent },
     ],

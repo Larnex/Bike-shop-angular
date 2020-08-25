@@ -1,6 +1,7 @@
+declare var google: any;
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppComponent } from './app.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
@@ -11,7 +12,9 @@ import { IonicModule } from '@ionic/angular';
 // carousel
 import { IvyCarouselModule } from 'angular-responsive-carousel';
 // agm
+import {} from 'googlemaps';
 import { AgmCoreModule } from '@agm/core';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [

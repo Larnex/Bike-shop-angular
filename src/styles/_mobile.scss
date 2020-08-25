@@ -34,17 +34,16 @@
     ##Screen = B/w 768px to 1024px
   */
 
+.carousel-container>.carousel-cells>.carousel-cell {
+  width: 80% !important;
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
 
   html {
     font-size: 7px;
   }
 
-
-  .carousel {
-    padding: 20px;
-    height: 70rem;
-  }
 
   .header-page {
     .header-nav {
@@ -76,6 +75,10 @@
   }
 
 
+  .carousel-container>.carousel-cells>.carousel-cell {
+    width: 70% !important;
+  }
+
   .header-content {
     width: 80%;
     left: 0;
@@ -90,7 +93,7 @@
   }
 
   .carousel {
-    width: 560px !important;
+    width: 90% !important;
 
     &-container {
       display: flex;
@@ -152,7 +155,7 @@
 
   agm-map,
   .carousel {
-    width: 280px !important;
+    width: 90% !important;
   }
 
   .carousel-arrow {

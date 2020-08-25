@@ -246,8 +246,9 @@ video {
 
 /* END OF MAIN CONTENT */
 
+
 .carousel>.carousel-container>.carousel-cells {
-  width: 750px !important;
+  width: 100% !important;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -259,6 +260,8 @@ video {
     flex-direction: column;
   }
 }
+
+
 
 // STYLE THE BUTTON
 .bubbly-button {

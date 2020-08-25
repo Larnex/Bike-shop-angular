@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { goods } from '../goods';
+import { goods } from '../../assets/goods';
 
 @Component({
   selector: 'app-main-page',
