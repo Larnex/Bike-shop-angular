@@ -1,16 +1,117 @@
 <div class="header-content">
-  <h1 class="header__title">
-    Products
-  </h1>
+  <h1 class="header__title">Products</h1>
 
-  <carousel style="width: 70%; height: 100%;" cellWidth="800" loop="true" autoplay="true" pauseOnHover="true"
-    autoplayInterval="5000">
-    <div class="carousel-cell" *ngFor="let product of goods">
+  <carousel
+    style="width: 70%; height: 100%"
+    cellWidth="800"
+    loop="true"
+    pauseOnHover="true"
+  >
+    <div class="carousel-cell" *ngFor="let bike of bikes">
       <div class="content-container">
-        <h2>{{ product.name }}</h2>
-        <h3>{{ product.price }}</h3>
-        <img src="{{ product.imgSrc }}" style="height: 30rem; width: 50rem" />
-        <button class="bubbly-button">BUY NOW!</button>
+        <div *ngIf="!showDetails" class="preview">
+          <div class="slide-nav">
+            <div class="bike-new">
+              <p *ngIf="bike.new">New!</p>
+            </div>
+            <div class="bike-name">
+              <p>{{ bike.name }}</p>
+            </div>
+            <div class="bike-details">
+              <p (mouseenter)="showDetails = true">DETAILS</p>
+            </div>
+          </div>
+
+          <div class="bike-image">
+            <img src="{{ bike.imgUrl }}" alt="{{ bike.name }}" />
+          </div>
+
+          <div class="slide-footer">
+            <div class="bike-shipping">
+              <p *ngIf="bike.shipping !== null">{{ bike.shipping }}</p>
+            </div>
+            <div class="bike-btn">
+              <button type="submit" class="bubbly-button">BUY</button>
+            </div>
+            <div class="bike-discount">
+              <div class="price">
+                <p class="old-price">
+                  {{ bike.price | currency: "EUR" }}
+                </p>
+                <p
+                  class="is-discount"
+                  [ngStyle]="{
+                    'background-color':
+                      bike.discount > 70
+                        ? 'red'
+                        : bike.discount > 60
+                        ? 'pink'
+                        : bike.discount > 50
+                        ? 'orange'
+                        : null
+                  }"
+                >
+                  -{{ bike.discount }}%
+                </p>
+              </div>
+
+              <div class="discount-price">
+                <p
+                  [ngStyle]="{
+                    color:
+                      bike.discount > 70
+                        ? 'red'
+                        : bike.discount > 60
+                        ? 'pink'
+                        : bike.discount > 50
+                        ? 'orange'
+                        : null
+                  }"
+                >
+                  {{
+                    bike.price - (bike.discount / 100) * bike.price
+                      | currency: "EUR"
+                  }}
+                </p>
+              </div>
+
+              <div class="discount-date">
+                <p>Discount Until: {{ bike.discountUntil }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="showDetails" class="details">
+          <div class="details-header">
+            <div class="info-container">
+              <p>Colors:{{ bike.color }}</p>
+              <p>Sizes: {{ bike.size }}</p>
+            </div>
+            <div
+              class="description-container"
+              (mouseleave)="showDetails = false"
+            >
+              <h1>About the bike:</h1>
+              <p>{{ bike.description | charLimit }}</p>
+            </div>
+          </div>
+          <div class="reviews">
+            <h1>Reviews</h1>
+            <div class="review" *ngFor="let review of bike.review">
+              <div class="text">
+                <p>«{{ review.text }}»</p>
+              </div>
+              <div class="review-footer">
+                <div class="review-author">
+                  <p>Author: {{ review.author }}</p>
+                </div>
+                <div class="review-rating">
+                  <p>Rating: {{ review.rating }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </carousel>
