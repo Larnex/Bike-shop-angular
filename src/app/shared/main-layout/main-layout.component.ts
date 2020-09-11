@@ -1,5 +1,4 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { TitleCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-main-layout',
@@ -10,6 +9,7 @@ export class MainLayoutComponent implements OnInit {
   sourceVideo = '../../../assets/images/bike.mp4';
   navbarOpen: boolean = false;
   public innerWidth: any;
+
   constructor() {}
 
   ngOnInit(): void {}
