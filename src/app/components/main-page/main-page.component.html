@@ -49,15 +49,15 @@
 
               <div class="discount-price">
                 <p [ngStyle]="{
-                    color:
-                      bike.discount > 70
-                        ? 'red'
-                        : bike.discount > 60
-                        ? 'pink'
-                        : bike.discount > 50
-                        ? 'orange'
-                        : null
-                  }">
+                  'color':
+                    bike.discount > 70
+                      ? 'red'
+                      : bike.discount > 60
+                      ? 'pink'
+                      : bike.discount > 50
+                      ? 'orange'
+                      : null
+                }">
                   {{
                     bike.price - (bike.discount / 100) * bike.price
                       | currency: "EUR"
@@ -66,7 +66,7 @@
               </div>
 
               <div class="discount-date">
-                <p>Discount Until: {{ bike.discountUntil }}</p>
+                <p>Discount Until: {{ bike.discountUntil | date: 'medium'}}</p>
               </div>
             </div>
           </div>

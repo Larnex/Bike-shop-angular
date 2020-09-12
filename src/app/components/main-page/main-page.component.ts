@@ -22,4 +22,15 @@ export class MainPageComponent implements OnInit {
   }
 
   bikes: Bike[];
+
+  // myStyle = {
+  //   color:
+  //     bike.discount > 70
+  //       ? 'red'
+  //       : bike.discount > 60
+  //       ? 'pink'
+  //       : bike.discount > 50
+  //       ? 'orange'
+  //       : null,
+  // };
 }
