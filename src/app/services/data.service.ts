@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Bike } from '../assets/bikes';
-import { BIKES } from '../assets/data';
+import { Bike } from '../bikes';
+import { BIKES } from '../../assets/data';
 import { Observable, of } from 'rxjs';
 
 @Injectable({

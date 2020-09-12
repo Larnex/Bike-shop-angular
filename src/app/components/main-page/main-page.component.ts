@@ -1,6 +1,6 @@
 import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
-import { Bike } from '../../assets/bikes';
-import { DataService } from '../data.service';
+import { Bike } from '../../bikes';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-main-page',

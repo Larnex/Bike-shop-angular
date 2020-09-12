@@ -1,4 +1,4 @@
-import { Bike } from './bikes';
+import { Bike } from '../app/bikes';
 
 export const BIKES: Bike[] = [
   {
