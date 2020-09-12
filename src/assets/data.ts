@@ -1,4 +1,4 @@
-import { Bike } from '../app/bikes';
+import { Bike } from '../app/model/bikes';
 
 export const BIKES: Bike[] = [
   {
@@ -11,7 +11,7 @@ export const BIKES: Bike[] = [
     shop: 'Canada Bike',
     name: 'Argon 18',
     description:
-      'Founded by retired cyclist Gervais Rioux in Montreal in 1989, Argon 18 has grown to distribute bikes aross the world and sponsors a number of professional cycling teams and triathletes. In 2019, Argo 18 sponsores Hugo Houle’s UCI WorldTour team Astana',
+      'Founded by retired cyclist Gervais Rioux in Montreal in 1989, Argon 18 has grown to distribute bikes aross the world and sponsors a number of professional cycling teams and triathletes. In 2019, Argo 18 sponsores Hugo Houle’s U  CI WorldTour team Astana',
     shipping: 'Free shipping',
     discountUntil: '2021-06-02T10:00:00',
     new: true,

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Bike } from '../bikes';
+import { Bike } from '../model/bikes';
 import { BIKES } from '../../assets/data';
 import { Observable, of } from 'rxjs';
 

@@ -6,10 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MainLayoutComponent } from './components/shared/main-layout/main-layout.component';
-import {
-  CharLimitPipe,
-  MainPageComponent,
-} from './components/main-page/main-page.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 // icons
 import { IonicModule } from '@ionic/angular';
@@ -20,6 +17,9 @@ import {} from 'googlemaps';
 import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './components/app.component';
 import { CommonModule } from '@angular/common';
+
+//pipes
+import { CharLimitPipe } from './pipes/character-limit.pipe';
 
 @NgModule({
   declarations: [
