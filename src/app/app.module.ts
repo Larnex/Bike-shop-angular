@@ -5,12 +5,12 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { MainLayoutComponent } from './shared/main-layout/main-layout.component';
+import { MainLayoutComponent } from './components/shared/main-layout/main-layout.component';
 import {
   CharLimitPipe,
   MainPageComponent,
-} from './main-page/main-page.component';
-import { ContactPageComponent } from './contact-page/contact-page.component';
+} from './components/main-page/main-page.component';
+import { ContactPageComponent } from './components/contact-page/contact-page.component';
 // icons
 import { IonicModule } from '@ionic/angular';
 // carousel
@@ -18,7 +18,8 @@ import { IvyCarouselModule } from 'angular-responsive-carousel';
 // agm
 import {} from 'googlemaps';
 import { AgmCoreModule } from '@agm/core';
-import { AppComponent } from './app.component';
+import { AppComponent } from './components/app.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     IonicModule.forRoot(),
