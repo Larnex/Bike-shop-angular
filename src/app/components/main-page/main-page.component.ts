@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BIKES } from 'src/assets/data';
+import { SubscriptionLike } from 'rxjs';
 import { Bike } from '../../model/bikes';
 import { DataService } from '../../services/data.service';
 
@@ -9,28 +9,23 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./main-page.component.scss'],
 })
 export class MainPageComponent implements OnInit {
+  subscription: SubscriptionLike;
+
   constructor(private dataService: DataService) {}
+  bikes: Bike[];
 
   ngOnInit(): void {
-    this.getBikes();
+    this.subscription = this.dataService
+      .getBikes()
+      .subscribe((bikes) => (this.bikes = bikes));
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
   }
 
   showDetails: boolean = false;
-
-  getBikes(): void {
-    this.dataService.getBikes().subscribe((bikes) => (this.bikes = bikes));
-  }
-
-  bikes: Bike[];
-
-  // myStyle = {
-  //   color:
-  //     bike.discount > 70
-  //       ? 'red'
-  //       : bike.discount > 60
-  //       ? 'pink'
-  //       : bike.discount > 50
-  //       ? 'orange'
-  //       : null,
-  // };
 }

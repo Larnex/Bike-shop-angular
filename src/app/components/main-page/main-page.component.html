@@ -34,15 +34,15 @@
                   {{ bike.price | currency: "EUR" }}
                 </p>
                 <p class="is-discount" [ngStyle]="{
-                    'background-color':
-                      bike.discount > 70
-                        ? 'red'
-                        : bike.discount > 60
-                        ? 'pink'
-                        : bike.discount > 50
-                        ? 'orange'
-                        : null
-                  }">
+                  'background-color':
+                    bike.discount > 70
+                      ? 'red'
+                      : bike.discount > 60
+                      ? 'pink'
+                      : bike.discount > 50
+                      ? 'orange'
+                      : null
+                }">
                   -{{ bike.discount }}%
                 </p>
               </div>
