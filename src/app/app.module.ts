@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { MainLayoutComponent } from './components/shared/main-layout/main-layout.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 // icons
 import { IonicModule } from '@ionic/angular';
 // carousel
@@ -18,6 +19,8 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './components/app.component';
 import { CommonModule } from '@angular/common';
 
+import { DataService } from './services/data.service';
+
 //pipes
 import { CharLimitPipe } from './pipes/character-limit.pipe';
 
@@ -27,6 +30,7 @@ import { CharLimitPipe } from './pipes/character-limit.pipe';
     MainLayoutComponent,
     MainPageComponent,
     ContactPageComponent,
+    ProductDetailsComponent,
     CharLimitPipe,
   ],
   imports: [
@@ -40,7 +44,7 @@ import { CharLimitPipe } from './pipes/character-limit.pipe';
       apiKey: 'AIzaSyDD9woHUDfiRIDQFZdRnY-nckUjlsUvjyQ',
     }),
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

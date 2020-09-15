@@ -7,6 +7,11 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
+  getBike(id: number): Promise<Bike> {
+    return this.getBikes()
+      .toPromise()
+      .then((bikes) => bikes.find((bike) => bike.id === id));
+  }
   constructor() {}
 
   getBikes(): Observable<Bike[]> {

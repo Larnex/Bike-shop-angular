@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SubscriptionLike } from 'rxjs';
 import { Bike } from '../../model/bikes';
 import { DataService } from '../../services/data.service';
@@ -11,8 +12,9 @@ import { DataService } from '../../services/data.service';
 export class MainPageComponent implements OnInit {
   subscription: SubscriptionLike;
 
-  constructor(private dataService: DataService) {}
+  constructor(private router: Router, private dataService: DataService) {}
   bikes: Bike[];
+  selectedBike: Bike;
 
   ngOnInit(): void {
     this.subscription = this.dataService
@@ -25,6 +27,11 @@ export class MainPageComponent implements OnInit {
       this.subscription.unsubscribe();
       this.subscription = null;
     }
+  }
+
+  showBikeDetails(bike: Bike): void {
+    this.selectedBike = bike;
+    this.router.navigate(['/bike', this.selectedBike.id]);
   }
 
   showDetails: boolean = false;
