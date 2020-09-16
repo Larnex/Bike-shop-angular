@@ -7,7 +7,7 @@
 <div class="header" id="home">
   <div class="header-page">
     <div class=" logo-container">
-      <h1 class="logo">Bikeshop</h1>
+      <h1 class="logo" [routerLink]="['/']">Bikeshop</h1>
     </div>
     <nav class="header-nav" id="navbar" [ngClass]="{'open' : navbarOpen}">
       <button class="dropdown-button" id="menu-button" (click)="showNavbar()" [ngClass]="{'transform' : navbarOpen}">

@@ -76,8 +76,12 @@ video {
     h1 {
       margin: 0;
       font-family: "Logo";
-      cursor: default;
+      cursor: pointer;
       font-size: 5rem;
+
+      &:focus {
+        outline: 0;
+      }
     }
   }
 
