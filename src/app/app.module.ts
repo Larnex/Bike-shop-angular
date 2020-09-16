@@ -24,6 +24,7 @@ import { DataService } from './services/data.service';
 //pipes
 import { CharLimitPipe } from './pipes/character-limit.pipe';
 import { NgStringPipesModule } from 'ngx-pipes';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { NgStringPipesModule } from 'ngx-pipes';
       apiKey: 'AIzaSyDD9woHUDfiRIDQFZdRnY-nckUjlsUvjyQ',
     }),
     NgStringPipesModule,
+    NgbModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

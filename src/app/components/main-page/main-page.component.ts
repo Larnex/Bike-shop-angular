@@ -16,6 +16,16 @@ export class MainPageComponent implements OnInit {
   bikes: Bike[];
   selectedBike: Bike;
 
+  getColor(discount: number): string | null {
+    return discount > 70
+      ? 'red'
+      : discount > 60
+      ? 'pink'
+      : discount > 50
+      ? 'orange'
+      : null;
+  }
+
   ngOnInit(): void {
     this.subscription = this.dataService
       .getBikes()

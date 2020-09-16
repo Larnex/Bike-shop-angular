@@ -34,14 +34,7 @@
                   {{ bike.price | currency: "EUR" }}
                 </p>
                 <p class="is-discount" [ngStyle]="{
-                  'background-color':
-                    bike.discount > 70
-                      ? 'red'
-                      : bike.discount > 60
-                      ? 'pink'
-                      : bike.discount > 50
-                      ? 'orange'
-                      : null
+                  'background-color': getColor(bike.discount)
                 }">
                   -{{ bike.discount }}%
                 </p>
@@ -49,14 +42,7 @@
 
               <div class="discount-price">
                 <p [ngStyle]="{
-                  'color':
-                    bike.discount > 70
-                      ? 'red'
-                      : bike.discount > 60
-                      ? 'pink'
-                      : bike.discount > 50
-                      ? 'orange'
-                      : null
+                  'color':getColor(bike.discount)
                 }">
                   {{
                     bike.price - (bike.discount / 100) * bike.price

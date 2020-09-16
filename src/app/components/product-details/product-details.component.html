@@ -1,5 +1,5 @@
 <div class="details-page" *ngIf="bike">
-  <div class="col-1">
+  <div class="col">
     <div class="image-container" (click)="zoomImage = true">
       <img src="{{ bike.imgUrl }}" alt="{{ bike.name }}" id="myImg" #myImg />
 
@@ -21,7 +21,7 @@
   </div>
   <!-- ZOOM IMAGE -->
 
-  <div class="col-2">
+  <div class="col">
     <div class="bike-title">
       <h1>{{ bike.name }}</h1>
     </div>
@@ -29,13 +29,39 @@
     <div class="bike-desc">
       <p>
         {{ bike.description | shorten: descriptionLength:"..." }}
-        <span
-          *ngIf="bike.description.length > descriptionLength"
-          (click)="descriptionLength = bike.description.length"
-        >
+        <span *ngIf="bike.description.length > descriptionLength" (click)="descriptionLength = bike.description.length">
           (Read More)
         </span>
       </p>
+    </div>
+
+    <div class="bike-price">
+      <div class="price">
+        <p class="old-price">
+          {{ bike.price | currency: "EUR" }}
+        </p>
+
+        <p [ngStyle]="{
+            'color':getColor(bike.discount)
+          }">
+          {{
+              bike.price - (bike.discount / 100) * bike.price
+                | currency: "EUR"
+            }}
+        </p>
+      </div>
+
+      <div>
+        <p class="is-discount" [ngStyle]="{
+          'background-color': getColor(bike.discount)
+        }">
+          -{{ bike.discount }}%
+        </p>
+      </div>
+    </div>
+
+    <div class="bike-reviews">
+
     </div>
   </div>
 </div>

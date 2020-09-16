@@ -13,6 +13,16 @@ export class ProductDetailsComponent implements OnInit {
   zoomImage: Boolean = false;
   descriptionLength = 100;
 
+  getColor(discount: number): string | null {
+    return discount > 70
+      ? 'red'
+      : discount > 60
+      ? 'pink'
+      : discount > 50
+      ? 'orange'
+      : null;
+  }
+
   constructor(
     private route: ActivatedRoute,
     private dataService: DataService
