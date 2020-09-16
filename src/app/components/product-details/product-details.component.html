@@ -7,7 +7,7 @@
     </div>
 
     <div class="colors-show">
-      <p>{{bike.color.join('/')}}</p>
+      <p>{{ bike.color.join("/") }}</p>
     </div>
   </div>
 
@@ -15,16 +15,27 @@
   <div class="zoom-image" id="myModal" #myModal *ngIf="zoomImage">
     <span class="close" (click)="zoomImage = false">&times;</span>
 
-    <img id="img01" src="{{bike.imgUrl}}" #img01 class="image-content" />
+    <img id="img01" src="{{ bike.imgUrl }}" #img01 class="image-content" />
 
     <div id="caption">{{ bike.name }}</div>
   </div>
   <!-- ZOOM IMAGE -->
 
-
   <div class="col-2">
     <div class="bike-title">
-      <h1>{{bike.name}}</h1>
+      <h1>{{ bike.name }}</h1>
+    </div>
+
+    <div class="bike-desc">
+      <p>
+        {{ bike.description | shorten: descriptionLength:"..." }}
+        <span
+          *ngIf="bike.description.length > descriptionLength"
+          (click)="descriptionLength = bike.description.length"
+        >
+          (Read More)
+        </span>
+      </p>
     </div>
   </div>
 </div>

@@ -23,6 +23,7 @@ import { DataService } from './services/data.service';
 
 //pipes
 import { CharLimitPipe } from './pipes/character-limit.pipe';
+import { NgStringPipesModule } from 'ngx-pipes';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CharLimitPipe } from './pipes/character-limit.pipe';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDD9woHUDfiRIDQFZdRnY-nckUjlsUvjyQ',
     }),
+    NgStringPipesModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
