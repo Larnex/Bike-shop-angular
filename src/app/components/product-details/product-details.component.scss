@@ -17,7 +17,7 @@
 
   .image-container {
     position: relative;
-    height: 70%;
+    height: 60%;
     width: 100%;
 
     #myImg {
@@ -47,11 +47,23 @@
 
   .colors-show {
     width: 100%;
-    height: 30%;
+    height: 40%;
     font-size: 2rem;
     text-align: center;
     padding-top: 2rem;
   }
+
+
+  .bike-title {
+    width: 100%;
+    text-align: center;
+
+    h1 {
+      font-size: 5rem;
+    }
+  }
+
+
 
 
   /* The Modal (background) */
