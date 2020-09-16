@@ -10,6 +10,7 @@ import { DataService } from '../../services/data.service';
 })
 export class ProductDetailsComponent implements OnInit {
   bike: Bike;
+  zoomImage: Boolean = false;
 
   constructor(
     private route: ActivatedRoute,

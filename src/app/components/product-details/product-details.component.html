@@ -1,1 +1,22 @@
+<div class="details-page" *ngIf="bike">
+  <div class="col-1">
+    <div class="image-container" (click)="zoomImage = true">
+      <img src="{{ bike.imgUrl }}" alt="{{ bike.name }}" id="myImg" #myImg />
 
+      <span class="zoom">+ zoom</span>
+    </div>
+  </div>
+
+  <!-- ZOOM IMAGE -->
+  <div class="zoom-image" id="myModal" #myModal *ngIf="zoomImage">
+    <span class="close" (click)="zoomImage = false">&times;</span>
+
+    <img id="img01" src="{{bike.imgUrl}}" #img01 class="image-content" />
+
+    <div id="caption">{{ bike.name }}</div>
+  </div>
+  <!-- ZOOM IMAGE -->
+
+
+  <div class="col-2"></div>
+</div>
