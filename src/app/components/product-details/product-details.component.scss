@@ -87,12 +87,15 @@
     .old-price {
       text-decoration: line-through;
       margin-right: 1rem;
+      padding: 2.5px 5px 2.5px 0;
+
     }
 
     .is-discount {
       text-align: center;
       padding: 2.5px 5px;
-      margin: 0;
+
+
     }
   }
 
@@ -109,7 +112,7 @@
 
 
   /* The Modal (background) */
-  .zoom-image {
+  .modal-window {
     display: block;
     z-index: 2;
     position: fixed;
@@ -126,6 +129,32 @@
     /* Fallback color */
     background-color: rgba(0, 0, 0, 0.9);
     /* Black w/ opacity */
+  }
+
+  .review:not(:last-child) {
+    border-bottom: 1px white solid;
+  }
+
+  .review {
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+
+
+    &-text {
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    &-footer {
+      display: flex;
+      justify-content: space-around;
+
+    }
   }
 
   /* Modal Content (Image) */
@@ -149,7 +178,8 @@
 
   /* Add Animation - Zoom in the Modal */
   .image-content,
-  #caption {
+  #caption,
+  .review {
     animation-name: zoom;
     animation-duration: 0.6s;
   }

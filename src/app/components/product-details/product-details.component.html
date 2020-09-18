@@ -13,23 +13,37 @@
 
   <!-- MODAL WINDOWS -->
 
-  <!-- ZOOM IMAGE -->
-  <div class="zoom-image" id="myModal" #myModal *ngIf="showReviews">
+  <!-- SHOW REVIEWS -->
+  <div class="modal-window" id="myModal" #myModal *ngIf="showReviews && bike.review.length !== 0">
     <span class="close" (click)="showReviews = false">&times;</span>
 
+    <div class="review" *ngFor="let review of bike.review">
+      <p class="review-text">« {{review.text}} »</p>
+
+      <div class="review-footer">
+        <p class="review-author">
+          {{review.author}}
+        </p>
+        <div class="rating-container">
+          <ng-container *ngFor="let star of stars">
+            <app-star-rating [starId]="star" [rating]="review.rating"></app-star-rating>
+          </ng-container>
+        </div>
+      </div>
+    </div>
 
   </div>
-  <!-- ZOOM IMAGE -->
-
   <!-- SHOW REVIEWS -->
-  <div class="zoom-image" id="myModal" #myModal *ngIf="zoomImage">
+
+  <!-- ZOOM IMAGE -->
+  <div class="modal-window" id="myModal" #myModal *ngIf="zoomImage">
     <span class="close" (click)="zoomImage = false">&times;</span>
 
     <img id="img01" src="{{ bike.imgUrl }}" #img01 class="image-content" />
 
     <div id="caption">{{ bike.name }}</div>
   </div>
-  <!-- SHOW REVIEWS -->
+  <!-- ZOOM IMAGE -->
   <div class="col">
     <div class="bike-title">
       <h1>{{ bike.name }}</h1>
