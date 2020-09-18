@@ -88,11 +88,18 @@
           (starClicked)="onStarClicked($event)" [starId]="star"
           [rating]="(hoverState) || (rating || getRating(bike.review)) ">
         </app-star-rating>
-
       </ng-container>
-      <a class="all-reviews" (click)="showReviews = true">
-        Read {{bike.review.length}} Review{{bike.review.length > 1 ? "s" : ""}}
-      </a>
+      <span class="amount-reviews" (click)="showReviews = true">({{bike.review.length}})</span>
+
+      <div class="review-links">
+        <a class="all-reviews" (click)="showReviews = true">
+          Read {{bike.review.length}} Review{{bike.review.length > 1 ? "s" : ""}}
+        </a>
+
+        <a href="" class="write-review">
+          Write a Review
+        </a>
+      </div>
     </div>
   </div>
 </div>

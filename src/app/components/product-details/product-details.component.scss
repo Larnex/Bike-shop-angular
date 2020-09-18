@@ -100,12 +100,23 @@
   }
 
   .bike-reviews {
-    .all-reviews {
+    width: 100%;
+
+    .all-reviews,
+    .write-review,
+    .amount-reviews {
       display: inline;
-      font-size: 2rem;
+      font-size: 1.85rem;
       vertical-align: middle;
-      color: lightblue;
+      color: #86DDF6;
       cursor: pointer;
+    }
+
+
+
+    .review-links {
+      display: flex;
+      justify-content: space-between;
     }
   }
 
