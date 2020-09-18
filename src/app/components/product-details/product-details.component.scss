@@ -96,6 +96,18 @@
     }
   }
 
+  .bike-reviews {
+    .all-reviews {
+      display: inline;
+      font-size: 2rem;
+      vertical-align: middle;
+      color: lightblue;
+      cursor: pointer;
+    }
+  }
+
+
+
   /* The Modal (background) */
   .zoom-image {
     display: block;

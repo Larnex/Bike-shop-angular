@@ -11,7 +11,17 @@
     </div>
   </div>
 
+  <!-- MODAL WINDOWS -->
+
   <!-- ZOOM IMAGE -->
+  <div class="zoom-image" id="myModal" #myModal *ngIf="showReviews">
+    <span class="close" (click)="showReviews = false">&times;</span>
+
+
+  </div>
+  <!-- ZOOM IMAGE -->
+
+  <!-- SHOW REVIEWS -->
   <div class="zoom-image" id="myModal" #myModal *ngIf="zoomImage">
     <span class="close" (click)="zoomImage = false">&times;</span>
 
@@ -19,8 +29,7 @@
 
     <div id="caption">{{ bike.name }}</div>
   </div>
-  <!-- ZOOM IMAGE -->
-
+  <!-- SHOW REVIEWS -->
   <div class="col">
     <div class="bike-title">
       <h1>{{ bike.name }}</h1>
@@ -42,26 +51,34 @@
         </p>
 
         <p [ngStyle]="{
-            'color':getColor(bike.discount)
+            color: getColor(bike.discount)
           }">
           {{
-              bike.price - (bike.discount / 100) * bike.price
-                | currency: "EUR"
-            }}
+            bike.price - (bike.discount / 100) * bike.price | currency: "EUR"
+          }}
         </p>
       </div>
 
       <div>
         <p class="is-discount" [ngStyle]="{
-          'background-color': getColor(bike.discount)
-        }">
+            'background-color': getColor(bike.discount)
+          }">
           -{{ bike.discount }}%
         </p>
       </div>
     </div>
 
     <div class="bike-reviews">
+      <ng-container *ngFor="let star of stars">
+        <app-star-rating (starEnter)="onStarEnter($event)" (starLeave)="onStarLeave()"
+          (starClicked)="onStarClicked($event)" [starId]="star"
+          [rating]="(hoverState) || (rating || getRating(bike.review)) ">
+        </app-star-rating>
 
+      </ng-container>
+      <a class="all-reviews" (click)="showReviews = true">
+        Read {{bike.review.length}} Review{{bike.review.length > 1 ? "s" : ""}}
+      </a>
     </div>
   </div>
 </div>

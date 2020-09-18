@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Bike } from 'src/app/model/bikes';
 import { DataService } from '../../services/data.service';
@@ -10,8 +10,30 @@ import { DataService } from '../../services/data.service';
 })
 export class ProductDetailsComponent implements OnInit {
   bike: Bike;
+  showReviews: Boolean = false;
   zoomImage: Boolean = false;
   descriptionLength = 100;
+
+  getRating(rate: number[]): number | null {
+    if (rate.length === 0) return 0;
+    return rate.map((x) => x['rating']).reduce((a, b) => a + b / rate.length);
+  }
+
+  stars = [1, 2, 3, 4, 5];
+  rating = 0;
+  hoverState = 0;
+
+  onStarEnter(starId: number) {
+    this.hoverState = starId;
+  }
+
+  onStarLeave() {
+    this.hoverState = 0;
+  }
+
+  onStarClicked(starId: number) {
+    this.rating = starId;
+  }
 
   getColor(discount: number): string | null {
     return discount > 70
