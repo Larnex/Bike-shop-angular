@@ -105,18 +105,26 @@
     <div class="bike-selectors">
       <div class="color">
         <label for="colors">Color</label>
-        <select name="colors" id="colors">
-          <option disabled="true" selected="true" value="">Choose a color</option>
+        <select [(ngModel)]="selectedColor" name="colors" id="colors">
           <option *ngFor="let color of bike.color" value="{{color}}">{{color}}</option>
         </select>
+        <p class="availability" *ngIf="selectedColor == 'Select a color'">
+          {{selectedColor}}
+        </p>
       </div>
       <div class="size">
         <label for="size">Size</label>
-        <select name="size" id="size">
-          <option disabled="true" selected="true" value="">Choose a size</option>
+        <select [(ngModel)]="selectedSize" name="size" id="size" #size>
           <option *ngFor="let size of bike.size" value="{{size}}">{{size}}</option>
         </select>
+        <p class="availability" *ngIf="selectedSize == 'Select a size'">
+          {{selectedSize}}
+        </p>
       </div>
+    </div>
+    <div class="bike-quantity">
+      <label for="quantity">Quantity</label>
+      <input name="quantity" id="quantity" type="number" min="1" max="5">
     </div>
   </div>
 </div>

@@ -3,6 +3,7 @@ declare var google: any;
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MainLayoutComponent } from './components/shared/main-layout/main-layout.component';
@@ -41,6 +42,7 @@ import { StarRatingComponent } from './components/product-details/star-rating/st
     CommonModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     IonicModule.forRoot(),
     IvyCarouselModule,
     AgmCoreModule.forRoot({

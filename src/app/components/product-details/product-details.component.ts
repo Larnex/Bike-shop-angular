@@ -13,6 +13,8 @@ export class ProductDetailsComponent implements OnInit {
   showReviews: Boolean = false;
   zoomImage: Boolean = false;
   descriptionLength = 100;
+  selectedColor: string = 'Select a color';
+  selectedSize: string = 'Select a size';
 
   getRating(rate: number[]): number | null {
     if (rate.length === 0) return 0;
