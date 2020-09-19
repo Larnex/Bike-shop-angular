@@ -59,7 +59,7 @@
     text-align: center;
 
     h1 {
-      font-size: 5rem;
+      font-size: 3.5rem;
     }
   }
 
@@ -67,7 +67,7 @@
     width: 100%;
 
     p {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-family: Arial, Helvetica, sans-serif;
 
       span {
@@ -106,7 +106,7 @@
     .write-review,
     .amount-reviews {
       display: inline;
-      font-size: 1.85rem;
+      font-size: 1.6rem;
       vertical-align: middle;
       color: #86DDF6;
       cursor: pointer;
@@ -117,6 +117,29 @@
     .review-links {
       display: flex;
       justify-content: space-between;
+    }
+  }
+
+  .bike-selectors {
+    width: 100%;
+    font-size: 1.8rem;
+
+    .color {
+      margin-bottom: 1.5rem;
+    }
+
+    .size,
+    .color {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: bold;
+      }
+
+      select {
+        padding: 2.5px 10px;
+      }
     }
   }
 

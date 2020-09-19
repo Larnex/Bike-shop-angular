@@ -101,5 +101,22 @@
         </a>
       </div>
     </div>
+
+    <div class="bike-selectors">
+      <div class="color">
+        <label for="colors">Color</label>
+        <select name="colors" id="colors">
+          <option disabled="true" selected="true" value="">Choose a color</option>
+          <option *ngFor="let color of bike.color" value="{{color}}">{{color}}</option>
+        </select>
+      </div>
+      <div class="size">
+        <label for="size">Size</label>
+        <select name="size" id="size">
+          <option disabled="true" selected="true" value="">Choose a size</option>
+          <option *ngFor="let size of bike.size" value="{{size}}">{{size}}</option>
+        </select>
+      </div>
+    </div>
   </div>
 </div>
