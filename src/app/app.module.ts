@@ -25,7 +25,7 @@ import { DataService } from './services/data.service';
 import { CharLimitPipe } from './pipes/character-limit.pipe';
 import { NgStringPipesModule } from 'ngx-pipes';
 // rating as stars
-import { StarRatingComponent } from './components/product-details/star-rating/star-rating.component';
+import { StarRatingComponent } from './components/shared/star-rating/star-rating.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
