@@ -22,15 +22,15 @@ p {
 
   .image-container {
     position: relative;
-    height: 60%;
     width: 100%;
+    height: auto;
 
     #myImg {
       border-radius: 5px;
       cursor: pointer;
       transition: 0.3s;
-      height: 100%;
       width: 100%;
+      height: auto;
     }
 
     #myImg:hover {
@@ -44,7 +44,7 @@ p {
       right: 50%;
       background-color: grey;
       border-radius: 5px;
-      padding: 2.5px 10px;
+      padding: .25rem 1rem;
       color: white;
       transform: translateX(50%);
     }
@@ -64,6 +64,8 @@ p {
 
     h1 {
       font-size: 3rem;
+      margin: 0;
+      margin-bottom: 1rem;
     }
   }
 
@@ -173,9 +175,48 @@ p {
         margin: 0;
       }
     }
-
   }
 
+  .bike-btn {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+
+    fa-icon {
+      margin-right: 7.5px;
+    }
+
+    .wish-list,
+    .cart {
+      width: 100%;
+      padding: 5px 0;
+      margin: 7.5px 0;
+      text-align: center;
+    }
+
+    .cart {
+      background-color: #B0DAEB;
+      transition: all .3s ease;
+
+      &:hover {
+        background-color: #257493;
+        color: white;
+      }
+    }
+
+    .wish-list {
+      border: 1px solid #000;
+      transition: all .3s ease;
+
+      &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
 
 
   /* The Modal (background) */

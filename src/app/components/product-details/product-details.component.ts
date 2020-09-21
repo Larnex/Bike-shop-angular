@@ -3,12 +3,20 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Bike } from 'src/app/model/bikes';
 import { DataService } from '../../services/data.service';
 
+// import icons
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faMagic } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit {
+  // Icons
+  faCart = faShoppingCart;
+  faMagic = faMagic;
+
   bike: Bike;
   showReviews: Boolean = false;
   zoomImage: Boolean = false;

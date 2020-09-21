@@ -18,11 +18,11 @@
     <span class="close" (click)="showReviews = false">&times;</span>
 
     <div class="review" *ngFor="let review of bike.review">
-      <p class="review-text">« {{review.text}} »</p>
+      <p class="review-text">« {{ review.text }} »</p>
 
       <div class="review-footer">
         <p class="review-author">
-          {{review.author}}
+          {{ review.author }}
         </p>
         <div class="rating-container">
           <ng-container *ngFor="let star of stars">
@@ -31,7 +31,6 @@
         </div>
       </div>
     </div>
-
   </div>
   <!-- SHOW REVIEWS -->
 
@@ -86,19 +85,19 @@
       <ng-container *ngFor="let star of stars">
         <app-star-rating (starEnter)="onStarEnter($event)" (starLeave)="onStarLeave()"
           (starClicked)="onStarClicked($event)" [starId]="star"
-          [rating]="(hoverState) || (rating || getRating(bike.review)) ">
+          [rating]="hoverState || rating || getRating(bike.review)">
         </app-star-rating>
       </ng-container>
-      <span class="amount-reviews" (click)="showReviews = true">({{bike.review.length}})</span>
+      <span class="amount-reviews" (click)="showReviews = true">({{ bike.review.length }})</span>
 
       <div class="review-links">
         <a class="all-reviews" (click)="showReviews = true">
-          Read {{bike.review.length}} Review{{bike.review.length > 1 ? "s" : ""}}
+          Read {{ bike.review.length }} Review{{
+            bike.review.length > 1 ? "s" : ""
+          }}
         </a>
 
-        <a href="" class="write-review">
-          Write a Review
-        </a>
+        <a href="" class="write-review"> Write a Review </a>
       </div>
     </div>
 
@@ -106,25 +105,45 @@
       <div class="color">
         <label for="colors">Color</label>
         <select [(ngModel)]="selectedColor" name="colors" id="colors">
-          <option *ngFor="let color of bike.color" value="{{color}}">{{color}}</option>
+          <option *ngFor="let color of bike.color" value="{{ color }}">
+            {{ color }}
+          </option>
         </select>
         <p class="availability" *ngIf="selectedColor == 'Select a color'">
-          {{selectedColor}}
+          {{ selectedColor }}
         </p>
       </div>
       <div class="size">
         <label for="size">Size</label>
         <select [(ngModel)]="selectedSize" name="size" id="size" #size>
-          <option *ngFor="let size of bike.size" value="{{size}}">{{size}}</option>
+          <option *ngFor="let size of bike.size" value="{{ size }}">
+            {{ size }}
+          </option>
         </select>
         <p class="availability" *ngIf="selectedSize == 'Select a size'">
-          {{selectedSize}}
+          {{ selectedSize }}
         </p>
       </div>
     </div>
     <div class="bike-quantity">
       <label for="quantity">Quantity</label>
-      <input name="quantity" id="quantity" type="number" min="1" max="5">
+      <input name="quantity" id="quantity" type="number" min="1" max="5" />
+    </div>
+
+    <div class="bike-btn">
+      <div class="cart">
+        <button type="submit">
+          <fa-icon [icon]="faCart"></fa-icon>Add to Cart
+        </button>
+
+      </div>
+
+      <div class="wish-list">
+        <button type="submit">
+          <fa-icon [icon]="faMagic"></fa-icon>
+          Add to Wish List
+        </button>
+      </div>
     </div>
   </div>
 </div>

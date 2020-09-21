@@ -24,8 +24,9 @@ import { DataService } from './services/data.service';
 //pipes
 import { CharLimitPipe } from './pipes/character-limit.pipe';
 import { NgStringPipesModule } from 'ngx-pipes';
-import { StarRatingComponent } from './components/product-details/star-rating/star-rating.component';
 // rating as stars
+import { StarRatingComponent } from './components/product-details/star-rating/star-rating.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { StarRatingComponent } from './components/product-details/star-rating/st
       apiKey: 'AIzaSyDD9woHUDfiRIDQFZdRnY-nckUjlsUvjyQ',
     }),
     NgStringPipesModule,
+    FontAwesomeModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

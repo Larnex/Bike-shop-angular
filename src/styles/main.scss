@@ -210,6 +210,11 @@ video {
 
       li {
         transition: all 0.25s ease;
+
+        a:hover {
+          text-decoration: none;
+          color: #99BEFF;
+        }
       }
     }
 
