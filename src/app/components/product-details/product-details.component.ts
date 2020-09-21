@@ -6,6 +6,7 @@ import { DataService } from '../../services/data.service';
 // import icons
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faMagic } from '@fortawesome/free-solid-svg-icons';
+import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-product-details',
@@ -17,6 +18,7 @@ export class ProductDetailsComponent implements OnInit {
   faCart = faShoppingCart;
   faMagic = faMagic;
 
+  subscription: SubscriptionLike;
   bike: Bike;
   showReviews: Boolean = false;
   zoomImage: Boolean = false;
@@ -64,8 +66,17 @@ export class ProductDetailsComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       if (params['id'] !== undefined) {
         let id = +params['id'];
-        this.dataService.getBike(id).then((bike) => (this.bike = bike));
+        this.subscription = this.dataService
+          .getBike(id)
+          .subscribe((bike) => (this.bike = bike));
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.subscription.unsubscribe();
+    this.subscription = null;
   }
 }
