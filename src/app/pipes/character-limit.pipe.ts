@@ -1,27 +1,4 @@
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
-import { Bike } from '../../assets/bikes';
-import { DataService } from '../data.service';
-
-@Component({
-  selector: 'app-main-page',
-  templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.scss'],
-})
-export class MainPageComponent implements OnInit {
-  constructor(private dataService: DataService) {}
-
-  ngOnInit(): void {
-    this.getBikes();
-  }
-
-  showDetails: boolean = false;
-
-  getBikes(): void {
-    this.dataService.getBikes().subscribe((bikes) => (this.bikes = bikes));
-  }
-
-  bikes: Bike[];
-}
+import { Pipe, PipeTransform } from '@angular/core';
 
 // Custom Pipe to limit characters for description
 @Pipe({

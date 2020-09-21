@@ -1,12 +1,7 @@
 <div class="header-content">
-  <h1 class="header__title">Products</h1>
 
-  <carousel
-    style="width: 70%; height: 100%"
-    cellWidth="800"
-    loop="true"
-    pauseOnHover="true"
-  >
+  <carousel style="width: 70%; height: 100%; margin-top: 20rem; margin-bottom: 3rem;" cellWidth="800" loop="true"
+    pauseOnHover="true">
     <div class="carousel-cell" *ngFor="let bike of bikes">
       <div class="content-container">
         <div *ngIf="!showDetails" class="preview">
@@ -31,43 +26,24 @@
               <p *ngIf="bike.shipping !== null">{{ bike.shipping }}</p>
             </div>
             <div class="bike-btn">
-              <button type="submit" class="bubbly-button">BUY</button>
+              <button type="submit" (click)="showBikeDetails(bike)" class="bubbly-button">BUY</button>
             </div>
             <div class="bike-discount">
               <div class="price">
                 <p class="old-price">
                   {{ bike.price | currency: "EUR" }}
                 </p>
-                <p
-                  class="is-discount"
-                  [ngStyle]="{
-                    'background-color':
-                      bike.discount > 70
-                        ? 'red'
-                        : bike.discount > 60
-                        ? 'pink'
-                        : bike.discount > 50
-                        ? 'orange'
-                        : null
-                  }"
-                >
+                <p class="is-discount" [ngStyle]="{
+                  'background-color': getColor(bike.discount)
+                }">
                   -{{ bike.discount }}%
                 </p>
               </div>
 
               <div class="discount-price">
-                <p
-                  [ngStyle]="{
-                    color:
-                      bike.discount > 70
-                        ? 'red'
-                        : bike.discount > 60
-                        ? 'pink'
-                        : bike.discount > 50
-                        ? 'orange'
-                        : null
-                  }"
-                >
+                <p [ngStyle]="{
+                  'color':getColor(bike.discount)
+                }">
                   {{
                     bike.price - (bike.discount / 100) * bike.price
                       | currency: "EUR"
@@ -76,7 +52,7 @@
               </div>
 
               <div class="discount-date">
-                <p>Discount Until: {{ bike.discountUntil }}</p>
+                <p>Discount Until: {{ bike.discountUntil | date: 'medium'}}</p>
               </div>
             </div>
           </div>
@@ -87,10 +63,7 @@
               <p>Colors:{{ bike.color }}</p>
               <p>Sizes: {{ bike.size }}</p>
             </div>
-            <div
-              class="description-container"
-              (mouseleave)="showDetails = false"
-            >
+            <div class="description-container" (mouseleave)="showDetails = false">
               <h1>About the bike:</h1>
               <p>{{ bike.description | charLimit }}</p>
             </div>

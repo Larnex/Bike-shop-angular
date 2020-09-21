@@ -76,8 +76,12 @@ video {
     h1 {
       margin: 0;
       font-family: "Logo";
-      cursor: default;
+      cursor: pointer;
       font-size: 5rem;
+
+      &:focus {
+        outline: 0;
+      }
     }
   }
 
@@ -206,6 +210,11 @@ video {
 
       li {
         transition: all 0.25s ease;
+
+        a:hover {
+          text-decoration: none;
+          color: #99BEFF;
+        }
       }
     }
 

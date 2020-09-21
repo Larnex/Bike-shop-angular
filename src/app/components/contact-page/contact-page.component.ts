@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { address } from '../../assets/address';
+import { address } from '../../../assets/address';
 
 @Component({
   selector: 'app-contact-page',

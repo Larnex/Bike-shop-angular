@@ -1,0 +1,149 @@
+<div class="details-page" *ngIf="bike">
+  <div class="col">
+    <div class="image-container" (click)="zoomImage = true">
+      <img src="{{ bike.imgUrl }}" alt="{{ bike.name }}" id="myImg" #myImg />
+
+      <span class="zoom">+ zoom</span>
+    </div>
+
+    <div class="colors-show">
+      <p>{{ bike.color.join("/") }}</p>
+    </div>
+  </div>
+
+  <!-- MODAL WINDOWS -->
+
+  <!-- SHOW REVIEWS -->
+  <div class="modal-window" id="myModal" #myModal *ngIf="showReviews && bike.review.length !== 0">
+    <span class="close" (click)="showReviews = false">&times;</span>
+
+    <div class="review" *ngFor="let review of bike.review">
+      <p class="review-text">« {{ review.text }} »</p>
+
+      <div class="review-footer">
+        <p class="review-author">
+          {{ review.author }}
+        </p>
+        <div class="rating-container">
+          <ng-container *ngFor="let star of stars">
+            <app-star-rating [starId]="star" [rating]="review.rating"></app-star-rating>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- SHOW REVIEWS -->
+
+  <!-- ZOOM IMAGE -->
+  <div class="modal-window" id="myModal" #myModal *ngIf="zoomImage">
+    <span class="close" (click)="zoomImage = false">&times;</span>
+
+    <img id="img01" src="{{ bike.imgUrl }}" #img01 class="image-content" />
+
+    <div id="caption">{{ bike.name }}</div>
+  </div>
+  <!-- ZOOM IMAGE -->
+  <div class="col">
+    <div class="bike-title">
+      <h1>{{ bike.name }}</h1>
+    </div>
+
+    <div class="bike-desc">
+      <p>
+        {{ bike.description | shorten: descriptionLength:"..." }}
+        <span *ngIf="bike.description.length > descriptionLength" (click)="descriptionLength = bike.description.length">
+          (Read More)
+        </span>
+      </p>
+    </div>
+
+    <div class="bike-price">
+      <div class="price">
+        <p class="old-price">
+          {{ bike.price | currency: "EUR" }}
+        </p>
+
+        <p [ngStyle]="{
+            color: getColor(bike.discount)
+          }">
+          {{
+            bike.price - (bike.discount / 100) * bike.price | currency: "EUR"
+          }}
+        </p>
+      </div>
+
+      <div>
+        <p class="is-discount" [ngStyle]="{
+            'background-color': getColor(bike.discount)
+          }">
+          -{{ bike.discount }}%
+        </p>
+      </div>
+    </div>
+
+    <div class="bike-reviews">
+      <ng-container *ngFor="let star of stars">
+        <app-star-rating (starEnter)="onStarEnter($event)" (starLeave)="onStarLeave()"
+          (starClicked)="onStarClicked($event)" [starId]="star"
+          [rating]="hoverState || rating || getRating(bike.review)">
+        </app-star-rating>
+      </ng-container>
+      <span class="amount-reviews" (click)="showReviews = true">({{ bike.review.length }})</span>
+
+      <div class="review-links">
+        <a class="all-reviews" (click)="showReviews = true">
+          Read {{ bike.review.length }} Review{{
+            bike.review.length > 1 ? "s" : ""
+          }}
+        </a>
+
+        <a href="" class="write-review"> Write a Review </a>
+      </div>
+    </div>
+
+    <div class="bike-selectors">
+      <div class="color">
+        <label for="colors">Color</label>
+        <select [(ngModel)]="selectedColor" name="colors" id="colors">
+          <option *ngFor="let color of bike.color" value="{{ color }}">
+            {{ color }}
+          </option>
+        </select>
+        <p class="availability" *ngIf="selectedColor == 'Select a color'">
+          {{ selectedColor }}
+        </p>
+      </div>
+      <div class="size">
+        <label for="size">Size</label>
+        <select [(ngModel)]="selectedSize" name="size" id="size" #size>
+          <option *ngFor="let size of bike.size" value="{{ size }}">
+            {{ size }}
+          </option>
+        </select>
+        <p class="availability" *ngIf="selectedSize == 'Select a size'">
+          {{ selectedSize }}
+        </p>
+      </div>
+    </div>
+    <div class="bike-quantity">
+      <label for="quantity">Quantity</label>
+      <input name="quantity" id="quantity" type="number" min="1" max="5" />
+    </div>
+
+    <div class="bike-btn">
+      <div class="cart">
+        <button type="submit">
+          <fa-icon [icon]="faCart"></fa-icon>Add to Cart
+        </button>
+
+      </div>
+
+      <div class="wish-list">
+        <button type="submit">
+          <fa-icon [icon]="faMagic"></fa-icon>
+          Add to Wish List
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
