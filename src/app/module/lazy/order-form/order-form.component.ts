@@ -1,0 +1,79 @@
+import { Component, OnInit } from '@angular/core';
+import { Bike } from '../../../model/bikes';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SubscriptionLike } from 'rxjs';
+import { DataService } from '../../../services/data.service';
+
+@Component({
+  selector: 'app-order-form',
+  templateUrl: './order-form.component.html',
+  styleUrls: ['./order-form.component.scss'],
+})
+export class OrderFormComponent implements OnInit {
+  bikes: Bike[];
+  subscription: SubscriptionLike;
+  selectedValue: string;
+  isLinear = true;
+
+  firstFormGroup: FormGroup;
+  secondFormGroup: FormGroup;
+  thirdFormGroup: FormGroup;
+  fourthFormGroup: FormGroup;
+  fifthormGroup: FormGroup;
+
+  paymentMethods: Object = ['Cash', 'Paypal', 'Card'];
+
+  date: Date;
+
+  minDate: Date = new Date();
+  maxDate: Date = new Date();
+
+  constructor(
+    private dataService: DataService,
+    private _formBuilder: FormBuilder
+  ) {
+    this.maxDate.setDate(this.minDate.getDate() + 7);
+  }
+
+  addToday(event) {
+    event.stopPropagation();
+    this.date = new Date();
+  }
+  addTomorrow(event) {
+    event.stopPropagation();
+    this.date = new Date(new Date().setDate(new Date().getDate() + 1));
+  }
+
+  ngOnInit(): void {
+    this.subscription = this.dataService
+      .getBikes()
+      .subscribe((bikes) => (this.bikes = bikes));
+
+    this.firstFormGroup = this._formBuilder.group({
+      name: ['', Validators.required],
+      // description: ['', Validators.required],
+    });
+
+    this.secondFormGroup = this._formBuilder.group({
+      country: ['', Validators.required],
+      city: ['', Validators.required],
+      address: ['', Validators.required],
+    });
+
+    this.thirdFormGroup = this._formBuilder.group({
+      paymentType: [null, Validators.required],
+    });
+
+    this.fourthFormGroup = this._formBuilder.group({
+      date: ['', Validators.required],
+    });
+
+    // console.log(this.fourthFormGroup.get('date').value);
+  }
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = null;
+    }
+  }
+}

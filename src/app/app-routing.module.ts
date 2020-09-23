@@ -13,6 +13,11 @@ const routes: Routes = [
       { path: '', component: MainPageComponent },
       { path: 'contact', component: ContactPageComponent },
       { path: 'bike/:id', component: ProductDetailsComponent },
+      {
+        path: 'order',
+        loadChildren: () =>
+          import('./module/lazy/lazy.module').then((m) => m.LazyModule),
+      },
     ],
   },
 ];

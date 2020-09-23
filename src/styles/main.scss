@@ -128,7 +128,7 @@ video {
       margin-left: 2rem;
       letter-spacing: 0.5rem;
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
       align-items: center;
       flex-direction: column-reverse;
       line-height: 3.5;
@@ -155,7 +155,7 @@ video {
         height: 50%;
         display: flex;
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
         margin-bottom: 10rem;
       }
     }
@@ -199,8 +199,8 @@ video {
       margin-left: 2rem;
       letter-spacing: 0.5rem;
       display: flex;
-      justify-content: start;
-      align-items: start;
+      justify-content: flex-start;
+      align-items: flex-start;
       flex-direction: column;
       line-height: 3.5;
       font-family: "Menu";
@@ -461,39 +461,6 @@ video {
 }
 
 /* END OF SLIDER*/
-
-// Order form
-// .order-container {
-//   position: absolute;
-//   opacity: 1;
-//   top: 0;
-//   left: 0;
-//   height: 80%;
-//   width: 70%;
-//   margin: 0 auto;
-//   display: flex;
-//   justify-content: start;
-//   align-items: center;
-//   transition: all 2s ease-in-out;
-
-//   .order-box {
-//     z-index: 99;
-//     height: 100%;
-//     width: 100%;
-//     padding: 4rem;
-//     background: rgba(0, 0, 0, 0.75);
-//     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-//     border-radius: 10px;
-
-//     h2 {
-//       font-size: 2rem;
-//       margin: 0 0 3rem;
-//       padding: 0;
-//       color: #fff;
-//       text-align: center;
-//     }
-//   }
-// }
 
 /* CONTACT FORM */
 

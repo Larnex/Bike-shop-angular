@@ -3,7 +3,7 @@ declare var google: any;
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MainLayoutComponent } from './components/shared/main-layout/main-layout.component';
@@ -27,6 +27,7 @@ import { NgStringPipesModule } from 'ngx-pipes';
 // rating as stars
 import { StarRatingComponent } from './components/shared/star-rating/star-rating.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     IonicModule.forRoot(),
     IvyCarouselModule,
     AgmCoreModule.forRoot({
@@ -51,6 +53,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     }),
     NgStringPipesModule,
     FontAwesomeModule,
+    BrowserAnimationsModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
