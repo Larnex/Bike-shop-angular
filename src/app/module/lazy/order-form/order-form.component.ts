@@ -14,12 +14,15 @@ export class OrderFormComponent implements OnInit {
   subscription: SubscriptionLike;
   selectedValue: string;
   isLinear = true;
+  selectedBike: Object;
 
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
   fourthFormGroup: FormGroup;
   fifthormGroup: FormGroup;
+
+  summarizeGroup: FormGroup;
 
   paymentMethods: Object = ['Cash', 'Paypal', 'Card'];
 
@@ -51,7 +54,7 @@ export class OrderFormComponent implements OnInit {
 
     this.firstFormGroup = this._formBuilder.group({
       name: ['', Validators.required],
-      // description: ['', Validators.required],
+      description: ['', Validators.required],
     });
 
     this.secondFormGroup = this._formBuilder.group({
@@ -67,9 +70,13 @@ export class OrderFormComponent implements OnInit {
     this.fourthFormGroup = this._formBuilder.group({
       date: ['', Validators.required],
     });
-
-    // console.log(this.fourthFormGroup.get('date').value);
   }
+
+  assignDescription(event: any) {
+    this.firstFormGroup.get('name').setValue(event.value.name);
+    this.firstFormGroup.get('description').setValue(event.value.description);
+  }
+
   ngOnDestroy(): void {
     if (this.subscription) {
       this.subscription.unsubscribe();

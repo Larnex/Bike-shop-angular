@@ -1,0 +1,27 @@
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+
+  <p>
+    <label for="firstname">First Name</label>
+    <input type="text" id="firstname" name="firstname" ngModel>
+  </p>
+
+  <p>
+    <label for="surname">Surname</label>
+    <input type="text" id="surname" name="surname" ngModel>
+
+  </p>
+
+  <p>
+    <label for="email">E-mail</label>
+    <input type="text" id="email" name="email" ngModel>
+  </p>
+
+  <p>
+    <label for="description">Description</label>
+    <textarea type="text" id="description" name="description" ngModel></textarea>
+  </p>
+
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
