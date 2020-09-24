@@ -14,7 +14,7 @@ const routes: Routes = [
       { path: 'contact', component: ContactPageComponent },
       { path: 'bike/:id', component: ProductDetailsComponent },
       {
-        path: 'order',
+        path: 'form',
         loadChildren: () =>
           import('./module/lazy/lazy.module').then((m) => m.LazyModule),
       },
