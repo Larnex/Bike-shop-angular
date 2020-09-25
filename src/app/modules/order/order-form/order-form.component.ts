@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Bike } from '../../../model/bikes';
+import { Bike } from '../../../interfaces/bikes';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SubscriptionLike } from 'rxjs';
 import { DataService } from '../../../services/data.service';

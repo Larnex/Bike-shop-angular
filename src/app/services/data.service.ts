@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Bike } from '../model/bikes';
+import { Bike } from '../interfaces/bikes';
 import { BIKES } from '../../assets/data';
 import { Observable, of, from } from 'rxjs';
 import { map, reduce } from 'rxjs/operators';

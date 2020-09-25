@@ -16,7 +16,7 @@ const routes: Routes = [
       {
         path: 'form',
         loadChildren: () =>
-          import('./module/lazy/lazy.module').then((m) => m.LazyModule),
+          import('./modules/order/order.module').then((m) => m.LazyModule),
       },
     ],
   },

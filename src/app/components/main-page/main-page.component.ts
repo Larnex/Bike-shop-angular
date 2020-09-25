@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SubscriptionLike } from 'rxjs';
-import { Bike } from '../../model/bikes';
+import { Bike } from '../../interfaces/bikes';
 import { DataService } from '../../services/data.service';
 
 @Component({

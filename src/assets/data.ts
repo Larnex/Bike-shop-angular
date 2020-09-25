@@ -1,4 +1,4 @@
-import { Bike } from '../app/model/bikes';
+import { Bike } from '../app/interfaces/bikes';
 
 export const BIKES: Bike[] = [
   {

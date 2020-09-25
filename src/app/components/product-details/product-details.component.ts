@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Bike } from 'src/app/model/bikes';
+import { Bike } from 'src/app/interfaces/bikes';
 import { DataService } from '../../services/data.service';
 
 // import icons
