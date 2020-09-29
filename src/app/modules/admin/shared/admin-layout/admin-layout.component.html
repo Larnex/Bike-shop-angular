@@ -1,0 +1,18 @@
+<div class="header" id="home">
+  <div class="header-page" style="display: block;">
+    <nav class="header-nav" id="navbar" style="width: 100%; height: 10%; background-color: black;">
+      <ul class="header-nav__list"
+        style="transform: translateX(0); flex-direction: row; justify-content: space-between; margin: 0 3rem;">
+        <li class="header-nav__item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+              true}">
+          <a [routerLink]="['/']" class="header-nav__item-link">MAIN PAGE</a>
+        </li>
+        <li class="header-nav__item" routerLinkActive="active">
+          <a [routerLink]="['/admin','add']" class="header-nav__item-link">ADD PRODUCT</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
