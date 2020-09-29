@@ -12,4 +12,43 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: white;
+
+  label {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.92rem;
+    margin-left: 3.2rem;
+    margin-top: 1.12rem;
+    display: block;
+    transition: all 0.3s;
+    transform: translateY(0rem);
+  }
+
+  input {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    font-size: 1.92rem;
+    margin: 0 auto;
+    padding: 2.4rem 3.2rem;
+    border-radius: 0.32rem;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 90%;
+    display: block;
+    border-bottom: 0.48rem solid transparent;
+    transition: all 0.3s;
+  }
+
+  input:placeholder-shown+label {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-6.4rem);
+    transform: translateY(-6.4rem);
+  }
+
+  small {
+    font-size: 1.25rem;
+    color: red;
+  }
+
 }

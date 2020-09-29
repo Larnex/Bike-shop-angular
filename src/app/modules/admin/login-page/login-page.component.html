@@ -1,26 +1,28 @@
-<form [formGroup]="form" style="position: absolute;">
-  <h2>Login as administrator</h2>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+<div class="form__group">
+  <form [formGroup]="form">
+    <h2>Login as administrator</h2>
 
-  <div class="form-control">
-    <label for="login">Login</label>
-    <input id="login" type="text" formControlName="login">
-    <div *ngIf="form.get('login').touched && form.get('login').invalid">
-      <small *ngIf="form.get('login').errors.required">
-        Enter Login
-      </small>
+    <div class="form-control">
+      <input id="login" type="text" formControlName="login" placeholder="Login">
+      <label for="login">Login</label>
+      <div *ngIf="form.get('login').touched && form.get('login').invalid">
+        <small *ngIf="form.get('login').errors.required">
+          Enter Login
+        </small>
+      </div>
     </div>
-  </div>
 
-  <div class="form-control">
-    <label for="password">Password</label>
-    <input id="password" type="text" formControlName="password">
-    <div *ngIf="form.get('password').touched && form.get('password').invalid">
-      <small *ngIf="form.get('password').errors.required">
-        Enter Password
-      </small>
-      <small *ngIf="form.get('password').errors.minLength">
-        Password must be at least {{form.get('password').errors.minlength.requiredLength}} characters.
-      </small>
+    <div class="form-control">
+      <input id="password" type="text" formControlName="password" placeholder="Password">
+      <label for="password">Password</label>
+      <div *ngIf="form.get('password').touched && form.get('password').invalid">
+        <small *ngIf="form.get('password').errors.required">
+          Enter Password
+        </small>
+        <small *ngIf="form.get('password').errors.minLength">
+          Password must be at least {{form.get('password').errors.minlength.requiredLength}} characters.
+        </small>
+      </div>
     </div>
-  </div>
-</form>
+  </form>
