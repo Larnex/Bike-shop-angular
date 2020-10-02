@@ -90,7 +90,8 @@ export class AddPageComponent implements OnInit {
       review: null,
     };
 
+    console.log(bike.imgUrl[0] == '<');
+
     this.bikes.push(bike);
-    console.log(this.bikes);
   }
 }

@@ -18,7 +18,11 @@
           </div>
 
           <div class="bike-image">
-            <img src="{{ bike.imgUrl }}" alt="{{ bike.name }}" />
+            <img src="{{ bike.imgUrl }}" *ngIf="bike.imgUrl[0] !== '<'" alt="{{ bike.name }}" />
+            <div *ngIf="bike.imgUrl[0] == '<'" [innerHTML]="bike.imgUrl">
+            </div>
+
+
           </div>
 
           <div class="slide-footer">
