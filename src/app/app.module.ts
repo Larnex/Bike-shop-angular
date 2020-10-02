@@ -28,6 +28,7 @@ import { NgStringPipesModule } from 'ngx-pipes';
 import { StarRatingComponent } from './components/shared/star-rating/star-rating.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     IonicModule.forRoot(),
     IvyCarouselModule,
+    QuillModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDD9woHUDfiRIDQFZdRnY-nckUjlsUvjyQ',
     }),

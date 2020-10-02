@@ -5,12 +5,15 @@ import { AdminLayoutComponent } from './shared/admin-layout/admin-layout.compone
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AddPageComponent } from './add-page/add-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthGuard } from 'src/app/guards/auth.guard';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    QuillModule.forRoot(),
     RouterModule.forChild([
       {
         path: '',
@@ -28,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
           {
             path: 'add',
             component: AddPageComponent,
+            canActivate: [AuthGuard],
           },
         ],
       },

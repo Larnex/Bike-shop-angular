@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormService } from '../service/form.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -6,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-form.component.scss'],
 })
 export class ContactFormComponent implements OnInit {
-  constructor() {}
+  form: string;
+  model: any = {};
 
-  ngOnInit(): void {}
+  constructor(private formService: FormService, private router: Router) {}
 
-  onSubmit(contactForm) {
-    console.log(contactForm.value);
+  ngOnInit(): void {
+    this.formService.currentForm.subscribe((form) => (this.form = form));
+  }
+
+  onSubmit() {
+    this.router.navigate(['/form/successful']);
+  }
+
+  thisForm() {
+    this.formService.changeForm('contact');
   }
 }

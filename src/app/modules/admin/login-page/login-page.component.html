@@ -1,28 +1,32 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <div class="form__group">
-  <form [formGroup]="form">
+  <form [formGroup]="form" (ngSubmit)="submit()">
     <h2>Login as administrator</h2>
 
     <div class="form-control">
-      <input id="login" type="text" formControlName="login" placeholder="Login">
-      <label for="login">Login</label>
-      <div *ngIf="form.get('login').touched && form.get('login').invalid">
-        <small *ngIf="form.get('login').errors.required">
-          Enter Login
+      <input id="email" type="text" formControlName="email" placeholder="email">
+      <label for="email">Email</label>
+      <div *ngIf="form.get('email').touched && form.get('email').invalid">
+        <small *ngIf="form.get('email').errors.required">
+          Enter Email
         </small>
       </div>
     </div>
 
     <div class="form-control">
-      <input id="password" type="text" formControlName="password" placeholder="Password">
+      <input id="password" type="password" formControlName="password" placeholder="Password">
       <label for="password">Password</label>
       <div *ngIf="form.get('password').touched && form.get('password').invalid">
         <small *ngIf="form.get('password').errors.required">
           Enter Password
         </small>
-        <small *ngIf="form.get('password').errors.minLength">
+        <small *ngIf="form.get('password').errors.minlength">
           Password must be at least {{form.get('password').errors.minlength.requiredLength}} characters.
         </small>
       </div>
     </div>
+
+    <button type="submit" [disabled]="form.invalid || submitted">
+      Logon
+    </button>
   </form>

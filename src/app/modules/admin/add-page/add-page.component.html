@@ -1,1 +1,133 @@
-<p>add-page works!</p>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <div class="form-control">
+    <quill-editor class="quill" formControlName="imgUrl" style="background-color: white; color: black"
+      placeholder="Image"></quill-editor>
+    <div *ngIf="form.get('imgUrl').touched && form.get('imgUrl').invalid">
+      <small *ngIf="form.get('imgUrl').errors.required">
+        Attach an image
+      </small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <input id="price" type="number" formControlName="price" placeholder="Price" />
+    <label for="price">Price</label>
+    <div *ngIf="form.get('price').touched && form.get('price').invalid">
+      <small *ngIf="form.get('price').errors.required"> Enter price </small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <input id="discount" type="number" formControlName="discount" placeholder="Discount" />
+    <label for="discount">Discount</label>
+    <div *ngIf="form.get('discount').touched && form.get('discount').invalid">
+      <small *ngIf="form.get('discount').errors.required">
+        Enter discount
+      </small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <select formControlName="main">
+      <option [value]="null" [disabled]="true">Main?</option>
+      <option [value]="true">Yes</option>
+      <option [value]="false">No</option>
+    </select>
+    <label>Main</label>
+    <div *ngIf="form.get('main').touched && form.get('main').invalid">
+      <small *ngIf="form.get('main').errors.required">
+        Is the bike main?
+      </small>
+    </div>
+  </div>
+  <div class="form-control">
+    <input id="shop" type="text" formControlName="shop" placeholder="Shop" />
+    <label for="">Shop</label>
+    <div *ngIf="form.get('shop').touched && form.get('shop').invalid">
+      <small *ngIf="form.get('shop').errors.required"> Enter Shop </small>
+    </div>
+  </div>
+  <div class="form-control">
+    <input id="name" type="text" formControlName="name" placeholder="Name" />
+    <label for="name">Name</label>
+    <div *ngIf="form.get('name').touched && form.get('name').invalid">
+      <small *ngIf="form.get('name').errors.required">
+        Enter a name of bike
+      </small>
+    </div>
+  </div>
+  <div class="form-control">
+    <textarea id="description" type="text" formControlName="description" placeholder="Description">
+    </textarea>
+    <label for="description">Description</label>
+    <div *ngIf="form.get('description').touched && form.get('description').invalid">
+      <small *ngIf="form.get('description').errors.required">
+        Enter description
+      </small>
+    </div>
+  </div>
+  <div class="form-control">
+    <select formControlName="shipping">
+      <option [value]="null" [disabled]="true">Free Shipping?</option>
+      <option [value]="'Free shipping'">Yes</option>
+      <option [value]="null">No</option>
+    </select>
+    <label>Free shipping?</label>
+    <div *ngIf="form.get('shipping').touched && form.get('shipping').invalid">
+      <small *ngIf="form.get('shipping').errors.required">
+        Free shipping?
+      </small>
+    </div>
+  </div>
+  <div class="form-control" style="margin-bottom: 3.2rem">
+    <input id="discountUntil" type="text" formControlName="discountUntil" placeholder="Discount Until"
+      onfocus="(this.type='date')" />
+    <label>Discount Until</label>
+    <div *ngIf="
+        form.get('discountUntil').touched && form.get('discountUntil').invalid
+      ">
+      <small *ngIf="form.get('discountUntil').errors.required">
+        Choose end of discount date
+      </small>
+    </div>
+  </div>
+  <div class="form-control">
+    <select formControlName="new">
+      <option [value]="null" [disabled]="true">New?</option>
+      <option [value]="true">Yes</option>
+      <option [value]="false">No</option>
+    </select>
+    <label>New</label>
+    <div *ngIf="form.get('new').touched && form.get('new').invalid">
+      <small *ngIf="form.get('new').errors.required"> Is the bike new? </small>
+    </div>
+  </div>
+  <div class="checkbox-container">
+    <div class="checkboxes">
+      <h1>Colors</h1>
+      <div *ngFor="let color of colors; let i = index" class="checkbox">
+        <label>
+          <input type="checkbox" class="colors" [value]="color" (change)="check($event)" />
+          {{ color }}
+        </label>
+      </div>
+      <div *ngIf="form.get('color').touched && form.get('color').invalid">
+        <small *ngIf="form.get('color').errors.required"> Choose colors </small>
+      </div>
+    </div>
+    <div class="checkboxes">
+      <h1>Size</h1>
+      <div *ngFor="let size of size; let i = index" class="checkbox">
+        <label>
+          <input type="checkbox" class="size" [value]="size" (change)="check($event)" />
+          {{ size }}
+        </label>
+      </div>
+      <div *ngIf="form.get('color').touched && form.get('color').invalid">
+        <small *ngIf="form.get('color').errors.required"> Choose size </small>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="form.invalid || submitted">Add Product</button>
+</form>

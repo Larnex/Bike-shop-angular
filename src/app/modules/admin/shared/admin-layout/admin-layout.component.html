@@ -1,18 +1,28 @@
 <div class="header" id="home">
   <div class="header-page" style="display: block;">
-    <nav class="header-nav" id="navbar" style="width: 100%; height: 10%; background-color: black;">
-      <ul class="header-nav__list"
-        style="transform: translateX(0); flex-direction: row; justify-content: space-between; margin: 0 3rem;">
+    <nav class="header-nav" id="navbar">
+      <ul class="header-nav__list">
         <li class="header-nav__item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
               true}">
-          <a [routerLink]="['/']" class="header-nav__item-link">MAIN PAGE</a>
+          <a [routerLink]="['/']" class="header-nav__item-link" (click)="auth.logout()">MAIN PAGE</a>
+        </li>
+        <ng-template #login>
+          <ul class="header-nav__list">
+            <li class="header-nav__item" routerLinkActive="active">
+              <a [routerLink]="['/admin', 'login']">LOGIN</a>
+            </li>
+          </ul>
+        </ng-template>
+      </ul>
+      <ul class="header-nav__list" *ngIf="auth.isAuthenticated(); else login">
+        <li class="header-nav__item" routerLinkActive="active">
+          <a class="header-nav__item-link" [routerLink]="['/admin', 'add']">ADD PRODUCT</a>
         </li>
         <li class="header-nav__item" routerLinkActive="active">
-          <a [routerLink]="['/admin','add']" class="header-nav__item-link">ADD PRODUCT</a>
+          <a class="header-nav__item-link" (click)="logout($event)">LOGOUT</a>
         </li>
       </ul>
     </nav>
   </div>
 </div>
-
 <router-outlet></router-outlet>

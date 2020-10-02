@@ -7,10 +7,13 @@
           <mat-label>Choose a bike</mat-label>
 
           <mat-select required (selectionChange)="assignDescription($event)">
-            <mat-option #bike *ngFor="let bike of bikes" [value]="bike">
+            <mat-option id="bike" #bike *ngFor="let bike of bikes" [value]="bike">
               {{ bike.name }}</mat-option>
           </mat-select>
         </mat-form-field>
+        <mat-error *ngIf="bikeName.invalid">
+          You should choose a bike
+        </mat-error>
       </form>
       <div class="next-btn">
         <button mat-button matStepperNext>Next</button>
@@ -22,14 +25,33 @@
         <mat-form-field>
           <mat-label>Country</mat-label>
           <input matInput placeholder="Ukraine" formControlName="country" required />
+          <mat-error *ngIf="country.invalid && country.touched">
+            You country name is invalid
+          </mat-error>
+
+          <mat-error *ngIf="country.hasError('minlength')">
+            Your country name is too short
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>City</mat-label>
           <input matInput placeholder="Kyiv" formControlName="city" required />
+          <mat-error *ngIf="city.invalid && city.touched">
+            You should input your city
+          </mat-error>
+          <mat-error *ngIf="city.hasError('minlength')">
+            Your city name is too short
+          </mat-error>
         </mat-form-field>
         <mat-form-field>
           <mat-label>Address</mat-label>
           <input matInput placeholder="Ex. 1 Main St, New York, NY" formControlName="address" required />
+          <mat-error *ngIf="address.invalid && address.touched">
+            You should input your address
+          </mat-error>
+          <mat-error *ngIf="address.hasError('minlength')">
+            Your address is too short
+          </mat-error>
         </mat-form-field>
         <div>
           <button mat-button matStepperPrevious>Back</button>
@@ -47,6 +69,10 @@
           formControlName="paymentType">
           <mat-radio-button class="example-radio-button" *ngFor="let paymentMethod of paymentMethods"
             [value]="paymentMethod">{{ paymentMethod }}</mat-radio-button>
+
+          <mat-error *ngIf="payment.invalid">
+            You should choose your payment method
+          </mat-error>
         </mat-radio-group>
 
         <div>
@@ -72,6 +98,9 @@
             [(ngModel)]="date" />
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="getDate.invalid">
+            Your date of delivery is invalid
+          </mat-error>
         </mat-form-field>
 
         <div>
@@ -82,36 +111,26 @@
     </mat-step>
 
     <mat-step>
-      <ng-template matStepLabel>Info</ng-template>
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <ng-template matStepLabel>Info</ng-template>
 
-      <div class="summary">
-        <div class="name">
-          Name: {{ this.firstFormGroup.get("name").value }}
+        <div class="summary">
+          <div class="name">Name: {{ bikeName.value }}</div>
+          <div class="description">
+            Description: {{ bikeDescription.value }}
+          </div>
+          <div class="country">Country: {{ country.value }}</div>
+          <div class="city">City:{{ city.value }}</div>
+          <div class="address">address: {{ address.value }}</div>
+          <div class="payment">Payment Method:{{ payment.value }}</div>
+          <div class="date">Date of delivery: {{ getDate.value }}</div>
         </div>
-        <div class="description">
-          Description: {{ this.firstFormGroup.get("description").value }}
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+          <button mat-button (click)="thisForm()" type="submit">Submit</button>
         </div>
-        <div class="country">
-          Country: {{ this.secondFormGroup.get("country").value }}
-        </div>
-        <div class="city">
-          City:{{ this.secondFormGroup.get("city").value }}
-        </div>
-        <div class="address">
-          address: {{ this.secondFormGroup.get("address").value }}
-        </div>
-        <div class="payment">
-          Payment Method:{{ this.thirdFormGroup.get("paymentType").value }}
-        </div>
-        <div class="date">
-          Date of delivery: {{ this.fourthFormGroup.get("date").value }}
-        </div>
-      </div>
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
-        <button mat-button type="submit" [routerLink]="['/']">Submit</button>
-      </div>
+      </form>
     </mat-step>
   </mat-horizontal-stepper>
 </div>

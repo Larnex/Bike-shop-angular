@@ -1,0 +1,92 @@
+form {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  height: auto;
+  color: white;
+  overflow-y: auto;
+
+  .form-control {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  label {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.92rem;
+    margin-left: 3.2rem;
+    margin-top: 1.12rem;
+    display: block;
+    transition: all 0.3s;
+    transform: translateY(-1.5rem);
+  }
+
+  input:not([type='checkbox']),
+  select,
+  textarea {
+    font-family: "Roboto", sans-serif;
+    color: #333;
+    font-size: 1.92rem;
+    margin: 1.2rem 0;
+    padding: 2.4rem 3.2rem;
+    border-radius: 0.32rem;
+    background-color: rgb(255, 255, 255);
+    border: none;
+    width: 100%;
+    display: block;
+    border-bottom: 0.48rem solid transparent;
+    transition: all 0.3s;
+  }
+
+  input:placeholder-shown+label,
+  textarea:placeholder-shown+label,
+  select+label {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-6.4rem);
+    transform: translateY(-6.4rem);
+  }
+
+  small {
+    margin-left: 3.2rem;
+    font-size: 1.25rem;
+    color: red;
+  }
+
+  button {
+    font-size: 2rem;
+    background-color: black;
+    padding: 2.4rem 3.2rem;
+    cursor: pointer;
+    width: 100%;
+
+    &:hover {
+      color: black;
+      background-color: white;
+    }
+  }
+
+  .checkbox-container {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+
+    .checkboxes {
+      width: 50%;
+
+
+      h1 {
+        text-align: center;
+      }
+    }
+  }
+}

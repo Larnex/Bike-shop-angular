@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { OrderRoutingModule } from './order-routing.module';
 import { OrderFormComponent } from './order-form/order-form.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SuccessComponent } from './success/success.component';
 
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -17,7 +18,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
-  declarations: [OrderFormComponent, ContactFormComponent],
+  declarations: [OrderFormComponent, ContactFormComponent, SuccessComponent],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -34,4 +35,4 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     OrderRoutingModule,
   ],
 })
-export class LazyModule {}
+export class OrderModule {}

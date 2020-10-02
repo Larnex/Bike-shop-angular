@@ -37,4 +37,13 @@ form {
     background-color: #45a049;
   }
 
+  .is-invalid {
+    border: 2px solid red !important;
+  }
+
+  .invalid-feedback {
+    color: red;
+    margin-bottom: 2rem;
+  }
+
 }

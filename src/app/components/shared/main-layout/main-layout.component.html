@@ -7,7 +7,7 @@
 
 <div class="header" id="home">
   <div class="header-page">
-    <div class=" logo-container">
+    <div class="logo-container">
       <h1 class="logo" [routerLink]="['/']">Bikeshop</h1>
     </div>
     <nav class="header-nav" id="navbar" [ngClass]="{'open' : navbarOpen}">
@@ -24,6 +24,9 @@
         </li>
         <li class="header-nav__item" routerLinkActive="active">
           <a [routerLink]="['/form/order']" class="header-nav__item-link">ORDER PAGE</a>
+        </li>
+        <li class="header-nav__item" routerLinkActive="active">
+          <a [routerLink]="['/admin']" class="header-nav__item-link">ADMIN LOGIN</a>
         </li>
       </ul>
     </nav>

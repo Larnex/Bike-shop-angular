@@ -4,6 +4,7 @@ import { MainLayoutComponent } from './components/shared/main-layout/main-layout
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ContactPageComponent } from './components/contact-page/contact-page.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { AdminModule } from './modules/admin/admin.module';
 
 const routes: Routes = [
   {
@@ -16,9 +17,14 @@ const routes: Routes = [
       {
         path: 'form',
         loadChildren: () =>
-          import('./modules/order/order.module').then((m) => m.LazyModule),
+          import('./modules/order/order.module').then((m) => m.OrderModule),
       },
     ],
+  },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then((m) => AdminModule),
   },
 ];
 

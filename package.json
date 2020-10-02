@@ -33,6 +33,8 @@
     "font-awesome": "^4.7.0",
     "ionicons": "^5.1.2",
     "ngx-pipes": "^2.7.5",
+    "ngx-quill": "^12.0.1",
+    "quill": "^1.3.7",
     "rxjs": "^6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

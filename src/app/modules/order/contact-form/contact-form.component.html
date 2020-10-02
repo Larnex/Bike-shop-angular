@@ -1,27 +1,43 @@
-<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+<form #contactForm="ngForm" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
 
-  <p>
+  <div>
     <label for="firstname">First Name</label>
-    <input type="text" id="firstname" name="firstname" ngModel>
-  </p>
+    <input type="text" id="firstname" name="firstname" [(ngModel)]="model.firstName" #firstName="ngModel"
+      [ngClass]="{'is-invalid': f.submitted && firstName.invalid}" required>
+    <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+      <div *ngIf="firstName.errors.required">First Name is required</div>
+    </div>
+  </div>
 
-  <p>
+  <div>
     <label for="surname">Surname</label>
-    <input type="text" id="surname" name="surname" ngModel>
+    <input type="text" id="surname" name="surname" [(ngModel)]="model.surname" #surname="ngModel"
+      [ngClass]="{'is-invalid': f.submitted && surname.invalid}" required>
+    <div *ngIf="f.submitted && surname.invalid" class="invalid-feedback">
+      <div *ngIf="surname.errors.required">Surname is required</div>
+    </div>
+  </div>
 
-  </p>
-
-  <p>
+  <div>
     <label for="email">E-mail</label>
-    <input type="text" id="email" name="email" ngModel>
-  </p>
+    <input type="text" id="email" name="email" [(ngModel)]="model.email" #email="ngModel"
+      [ngClass]="{'is-invalid': f.submitted && email.invalid}" required email>
+    <div *ngIf="f.submitted && email.invalid" class="invalid-feedback">
+      <div *ngIf="email.errors.required">Email is required</div>
+      <div *ngIf="email.errors.email">Email must be a valid email address</div>
+    </div>
+  </div>
 
-  <p>
+  <div>
     <label for="description">Description</label>
-    <textarea type="text" id="description" name="description" ngModel></textarea>
-  </p>
+    <textarea type="text" id="description" name="description" [(ngModel)]="model.description" #description="ngModel"
+      [ngClass]="{'is-invalid': f.submitted && description.invalid}" required></textarea>
+    <div *ngIf="f.submitted && description.invalid" class="invalid-feedback">
+      <div *ngIf="description.errors.required">Description is required</div>
+    </div>
+  </div>
 
-  <p>
-    <button type="submit">Send</button>
-  </p>
+  <div>
+    <button type="submit" (click)="thisForm()">Send</button>
+  </div>
 </form>
