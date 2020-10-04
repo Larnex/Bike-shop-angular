@@ -13,7 +13,7 @@ import { FormService } from '../service/form.service';
   styleUrls: ['./order-form.component.scss'],
 })
 export class OrderFormComponent implements OnInit {
-  bikes: Bike[];
+  bikes: any[];
   subscription: SubscriptionLike;
   selectedValue: string;
   isLinear = true;

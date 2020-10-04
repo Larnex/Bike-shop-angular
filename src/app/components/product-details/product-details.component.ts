@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Bike } from 'src/app/interfaces/bikes';
 import { DataService } from '../../services/data.service';
@@ -19,7 +19,7 @@ export class ProductDetailsComponent implements OnInit {
   faMagic = faMagic;
 
   subscription: SubscriptionLike;
-  bike: Bike;
+  bike: any;
   showReviews: Boolean = false;
   zoomImage: Boolean = false;
   descriptionLength = 100;

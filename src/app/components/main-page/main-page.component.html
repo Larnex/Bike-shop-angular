@@ -1,7 +1,7 @@
 <div class="header-content">
 
   <carousel style="width: 70%; height: 100%; margin-top: 20rem; margin-bottom: 3rem;" cellWidth="800" loop="true"
-    pauseOnHover="true">
+    pauseOnHover="true" *ngIf="bikes">
     <div class="carousel-cell" *ngFor="let bike of bikes">
       <div class="content-container">
         <div *ngIf="!showDetails" class="preview">
@@ -17,12 +17,10 @@
             </div>
           </div>
 
-          <div class="bike-image">
-            <img src="{{ bike.imgUrl }}" *ngIf="bike.imgUrl[0] !== '<'" alt="{{ bike.name }}" />
-            <div *ngIf="bike.imgUrl[0] == '<'" [innerHTML]="bike.imgUrl">
-            </div>
-
-
+          <div class="bike-image" *ngIf="bike.imgUrl[0] !== '<'">
+            <img src="{{ bike.imgUrl }}" alt="{{ bike.name }}" />
+          </div>
+          <div class="bike-image" *ngIf="bike.imgUrl[0] == '<'" [innerHTML]="bike.imgUrl">
           </div>
 
           <div class="slide-footer">

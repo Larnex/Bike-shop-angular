@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 import { AppRoutingModule } from './app-routing.module';
 import { MainLayoutComponent } from './components/shared/main-layout/main-layout.component';
@@ -29,6 +30,9 @@ import { StarRatingComponent } from './components/shared/star-rating/star-rating
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { QuillModule } from 'ngx-quill';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -56,6 +60,8 @@ import { QuillModule } from 'ngx-quill';
     NgStringPipesModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

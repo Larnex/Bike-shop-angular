@@ -40,7 +40,6 @@ export class LoginPageComponent implements OnInit {
 
     this.auth.login(admin).subscribe(
       (res) => {
-        console.log(res);
         this.form.reset();
         this.router.navigate(['/admin', 'add']);
         this.submitted = false;

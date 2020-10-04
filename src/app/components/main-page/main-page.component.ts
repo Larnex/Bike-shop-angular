@@ -13,7 +13,7 @@ export class MainPageComponent implements OnInit {
   subscription: SubscriptionLike;
 
   constructor(private router: Router, private dataService: DataService) {}
-  bikes: Bike[];
+  bikes: any[];
   selectedBike: Bike;
 
   getColor(discount: number): string | null {
@@ -39,7 +39,7 @@ export class MainPageComponent implements OnInit {
     }
   }
 
-  showBikeDetails(bike: Bike): void {
+  showBikeDetails(bike: any): void {
     this.selectedBike = bike;
     this.router.navigate(['/bike', this.selectedBike.id]);
   }

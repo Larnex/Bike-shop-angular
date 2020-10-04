@@ -1,8 +1,17 @@
 <div class="details-page" *ngIf="bike">
   <div class="col">
-    <div class="image-container" (click)="zoomImage = true">
+    <!-- <div class="image-container" (click)="zoomImage = true">
       <img src="{{ bike.imgUrl }}" alt="{{ bike.name }}" id="myImg" #myImg />
 
+      <span class="zoom">+ zoom</span>
+    </div> -->
+
+    <div class="image-container" *ngIf="bike.imgUrl[0] !== '<'" (click)="zoomImage = true">
+      <img src="{{ bike.imgUrl }}" alt="{{ bike.name }}" id="myImg" #img />
+      <span class="zoom">+ zoom</span>
+
+    </div>
+    <div class="image-container" *ngIf="bike.imgUrl[0] == '<'" [innerHTML]="bike.imgUrl" (click)="zoomImage = true">
       <span class="zoom">+ zoom</span>
     </div>
 
@@ -38,7 +47,10 @@
   <div class="modal-window" id="myModal" #myModal *ngIf="zoomImage">
     <span class="close" (click)="zoomImage = false">&times;</span>
 
-    <img id="img01" src="{{ bike.imgUrl }}" #img01 class="image-content" />
+    <img id="img01" src="{{ bike.imgUrl }}" #img01 class="image-content" *ngIf="bike.imgUrl[0] !== '<'" />
+
+    <div *ngIf="bike.imgUrl[0] == '<'" [innerHTML]="bike.imgUrl"></div>
+
 
     <div id="caption">{{ bike.name }}</div>
   </div>
@@ -81,7 +93,7 @@
       </div>
     </div>
 
-    <div class="bike-reviews">
+    <div class="bike-reviews" *ngIf="bike.review !== undefined">
       <ng-container *ngFor="let star of stars">
         <app-star-rating (starEnter)="onStarEnter($event)" (starLeave)="onStarLeave()"
           (starClicked)="onStarClicked($event)" [starId]="star"

@@ -1,4 +1,4 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
+<form [formGroup]="form" (ngSubmit)="formSubmit()">
   <div class="form-control">
     <quill-editor class="quill" formControlName="imgUrl" style="background-color: white; color: black"
       placeholder="Image"></quill-editor>
@@ -30,8 +30,8 @@
   <div class="form-control">
     <select formControlName="main">
       <option [value]="null" [disabled]="true">Main?</option>
-      <option [value]="true">Yes</option>
-      <option [value]="false">No</option>
+      <option [value]=true>Yes</option>
+      <option [value]=false>No</option>
     </select>
     <label>Main</label>
     <div *ngIf="form.get('main').touched && form.get('main').invalid">
@@ -94,8 +94,8 @@
   <div class="form-control">
     <select formControlName="new">
       <option [value]="null" [disabled]="true">New?</option>
-      <option [value]="true">Yes</option>
-      <option [value]="false">No</option>
+      <option [value]="'true'">Yes</option>
+      <option [value]="'false'">No</option>
     </select>
     <label>New</label>
     <div *ngIf="form.get('new').touched && form.get('new').invalid">
@@ -107,7 +107,7 @@
       <h1>Colors</h1>
       <div *ngFor="let color of colors; let i = index" class="checkbox">
         <label>
-          <input type="checkbox" class="colors" [value]="color" (change)="check($event)" />
+          <input type="checkbox" class="colors" [value]="color" (change)="addCheckboxData($event)" />
           {{ color }}
         </label>
       </div>
@@ -119,7 +119,7 @@
       <h1>Size</h1>
       <div *ngFor="let size of size; let i = index" class="checkbox">
         <label>
-          <input type="checkbox" class="size" [value]="size" (change)="check($event)" />
+          <input type="checkbox" class="size" [value]="size" (change)="addCheckboxData($event)" />
           {{ size }}
         </label>
       </div>

@@ -56,6 +56,10 @@
 
       .bike-image {
         height: 70%;
+
+        p {
+          display: block !important;
+        }
       }
 
       &:before {

@@ -12,7 +12,7 @@ export class AuthService {
   login(Admin) {
     return this.http
       .post(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`,
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseConfig.apiKey}`,
         Admin
       )
       .pipe(tap(this.setToken));
