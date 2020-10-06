@@ -3,6 +3,10 @@
   top: 0;
   margin-top: -7.5rem;
   height: calc(100% + 7.5rem);
+  left: 50%;
+  width: 70%;
+  margin-left: -35%;
+  text-align: center;
   z-index: 2;
 
   .header__title {
@@ -16,7 +20,7 @@
   }
 
   mdb-carousel {
-    width: 50%;
+    width: 70%;
     height: 70%;
     margin-top: 20rem;
     margin-bottom: 3rem;

@@ -6,6 +6,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AddPageComponent } from './add-page/add-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,6 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
     ]),
   ],
   exports: [],
-  declarations: [AdminLayoutComponent, LoginPageComponent, AddPageComponent],
+  declarations: [AdminLayoutComponent, LoginPageComponent, AddPageComponent, DashboardComponent],
 })
 export class AdminModule {}
