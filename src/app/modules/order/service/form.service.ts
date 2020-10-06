@@ -11,7 +11,7 @@ export class FormService {
 
   constructor() {}
 
-  changeForm(form: string) {
+  changeForm(form: string): void {
     this.whichForm.next(form);
   }
 }

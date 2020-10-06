@@ -64,7 +64,7 @@ export class AddPageComponent implements OnInit, OnDestroy {
       });
   }
 
-  uploadImage(event): any {
+  uploadImage(event): void {
     const file = event.target.files[0];
     const filePath = `/${file.name}`;
     const ref = this.storage.ref(filePath);

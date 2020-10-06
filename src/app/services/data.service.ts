@@ -16,7 +16,7 @@ export class DataService {
     return this.db.list('/').valueChanges();
   }
 
-  getBike(id: number): any {
+  getBike(id: number): Observable<Object> {
     return this.getBikes().pipe(
       map((bikes) => bikes.find((bike) => bike['id'] === id))
     );
