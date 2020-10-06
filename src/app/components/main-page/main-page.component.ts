@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { SubscriptionLike } from 'rxjs';
+import { Observable, SubscriptionLike } from 'rxjs';
 import { Bike } from '../../interfaces/bikes';
 import { DataService } from '../../services/data.service';
 
@@ -13,8 +13,8 @@ export class MainPageComponent implements OnInit, OnDestroy {
   subscription: SubscriptionLike;
   showDetails = false;
 
-  constructor(private router: Router, private dataService: DataService) {}
-  bikes: any[];
+  constructor(private router: Router, public dataService: DataService) {}
+  bikes: Bike[];
   selectedBike: Bike;
 
   getColor(discount: number): string | null {
@@ -28,9 +28,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.subscription = this.dataService
-      .getBikes()
-      .subscribe((bikes) => (this.bikes = bikes));
+    this.dataService.getBikes().subscribe((bikes) => (this.bikes = bikes));
   }
 
   ngOnDestroy(): void {
@@ -40,7 +38,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
     }
   }
 
-  showBikeDetails(bike: any): void {
+  showBikeDetails(bike: Bike): void {
     this.selectedBike = bike;
     this.router.navigate(['/bike', this.selectedBike.id]);
   }

@@ -14,7 +14,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 // icons
 import { IonicModule } from '@ionic/angular';
 // carousel
-import { IvyCarouselModule } from 'angular-responsive-carousel';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
 // agm
 import {} from 'googlemaps';
 import { AgmCoreModule } from '@agm/core';
@@ -29,10 +30,8 @@ import { NgStringPipesModule } from 'ngx-pipes';
 import { StarRatingComponent } from './components/shared/star-rating/star-rating.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { QuillModule } from 'ngx-quill';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
@@ -53,17 +52,17 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     FormsModule,
     ReactiveFormsModule,
     IonicModule.forRoot(),
-    IvyCarouselModule,
-    QuillModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDD9woHUDfiRIDQFZdRnY-nckUjlsUvjyQ',
     }),
+    MDBBootstrapModule.forRoot(),
     NgStringPipesModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
     AngularFireStorageModule,
+    CarouselModule,
+    WavesModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

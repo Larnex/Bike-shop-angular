@@ -66,8 +66,8 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      if (params.id !== undefined) {
-        const id = +params.id;
+      if (params['id'] !== undefined) {
+        const id = +params['id'];
         this.subscription = this.dataService
           .getBike(id)
           .subscribe((bike) => (this.bike = bike));
