@@ -1,5 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="formSubmit()">
-  <div class="form-control">
+  <div class="form-control-container">
 
     <input type="file" (change)="uploadImage($event)">
     <input type="text" style="display: none;" formControlName="imgUrl">
@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <div class="form-control">
+  <div class="form-control-container">
     <input id="price" type="number" formControlName="price" placeholder="Price" />
     <label for="price">Price</label>
     <div *ngIf="form.get('price').touched && form.get('price').invalid">
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="form-control">
+  <div class="form-control-container">
     <input id="discount" type="number" formControlName="discount" placeholder="Discount" />
     <label for="discount">Discount</label>
     <div *ngIf="form.get('discount').touched && form.get('discount').invalid">
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <div class="form-control">
+  <div class="form-control-container">
     <select formControlName="main">
       <option [value]="null" [disabled]="true">Main?</option>
       <option [value]=true>Yes</option>
@@ -39,14 +39,14 @@
       </small>
     </div>
   </div>
-  <div class="form-control">
+  <div class="form-control-container">
     <input id="shop" type="text" formControlName="shop" placeholder="Shop" />
     <label for="">Shop</label>
     <div *ngIf="form.get('shop').touched && form.get('shop').invalid">
       <small *ngIf="form.get('shop').errors.required"> Enter Shop </small>
     </div>
   </div>
-  <div class="form-control">
+  <div class="form-control-container">
     <input id="name" type="text" formControlName="name" placeholder="Name" />
     <label for="name">Name</label>
     <div *ngIf="form.get('name').touched && form.get('name').invalid">
@@ -55,7 +55,7 @@
       </small>
     </div>
   </div>
-  <div class="form-control">
+  <div class="form-control-container">
     <textarea id="description" type="text" formControlName="description" placeholder="Description">
     </textarea>
     <label for="description">Description</label>
@@ -65,7 +65,7 @@
       </small>
     </div>
   </div>
-  <div class="form-control">
+  <div class="form-control-container">
     <select formControlName="shipping">
       <option [value]="null" [disabled]="true">Free Shipping?</option>
       <option [value]="'Free shipping'">Yes</option>
@@ -78,7 +78,7 @@
       </small>
     </div>
   </div>
-  <div class="form-control" style="margin-bottom: 3.2rem">
+  <div class="form-control-container" style="margin-bottom: 3.2rem">
     <input id="discountUntil" type="text" formControlName="discountUntil" placeholder="Discount Until"
       onfocus="(this.type='date')" />
     <label>Discount Until</label>
@@ -90,7 +90,7 @@
       </small>
     </div>
   </div>
-  <div class="form-control">
+  <div class="form-control-container">
     <select formControlName="new">
       <option [value]="null" [disabled]="true">New?</option>
       <option [value]="'true'">Yes</option>

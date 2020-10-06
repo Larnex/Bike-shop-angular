@@ -3,7 +3,7 @@
   <form [formGroup]="form" (ngSubmit)="submit()">
     <h2>Login as administrator</h2>
 
-    <div class="form-control">
+    <div class="form-control-container">
       <input id="email" type="text" formControlName="email" placeholder="email">
       <label for="email">Email</label>
       <div *ngIf="form.get('email').touched && form.get('email').invalid">
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="form-control">
+    <div class="form-control-container">
       <input id="password" type="password" formControlName="password" placeholder="Password">
       <label for="password">Password</label>
       <div *ngIf="form.get('password').touched && form.get('password').invalid">

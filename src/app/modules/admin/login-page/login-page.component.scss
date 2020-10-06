@@ -39,7 +39,7 @@ form {
     transition: all 0.3s;
   }
 
-  input:placeholder-shown + label {
+  input:placeholder-shown+label {
     opacity: 0;
     visibility: hidden;
     -webkit-transform: translateY(-6.4rem);
