@@ -27,8 +27,10 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  submit() {
-    if (this.form.invalid) return;
+  submit(): void {
+    if (this.form.invalid) {
+      return;
+    }
 
     this.submitted = true;
 

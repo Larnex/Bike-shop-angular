@@ -9,7 +9,7 @@ import { tap } from 'rxjs/operators';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  login(Admin) {
+  login(Admin): any {
     return this.http
       .post(
         `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebaseConfig.apiKey}`,
@@ -18,7 +18,7 @@ export class AuthService {
       .pipe(tap(this.setToken));
   }
 
-  private setToken(response) {
+  private setToken(response): void {
     if (response) {
       const expData = new Date(
         new Date().getTime() + +response.expiresIn * 1000
@@ -30,7 +30,7 @@ export class AuthService {
     }
   }
 
-  get token() {
+  get token(): any {
     const expData = new Date(localStorage.getItem('fb-token-exp'));
 
     if (new Date() > expData) {
@@ -40,11 +40,11 @@ export class AuthService {
     return localStorage.getItem('fb-token');
   }
 
-  logout() {
+  logout(): void {
     this.setToken(null);
   }
 
-  isAuthenticated() {
+  isAuthenticated(): boolean {
     return !!this.token;
   }
 }

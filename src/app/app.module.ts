@@ -22,7 +22,7 @@ import { AppComponent } from './components/app.component';
 import { CommonModule } from '@angular/common';
 
 import { DataService } from './services/data.service';
-//pipes
+// pipes
 import { CharLimitPipe } from './pipes/character-limit.pipe';
 import { NgStringPipesModule } from 'ngx-pipes';
 // rating as stars
@@ -33,6 +33,7 @@ import { QuillModule } from 'ngx-quill';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    AngularFireStorageModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

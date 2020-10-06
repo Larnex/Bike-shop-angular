@@ -17,11 +17,10 @@
             </div>
           </div>
 
-          <div class="bike-image" *ngIf="bike.imgUrl[0] !== '<'">
+          <div class="bike-image">
             <img src="{{ bike.imgUrl }}" alt="{{ bike.name }}" />
           </div>
-          <div class="bike-image" *ngIf="bike.imgUrl[0] == '<'" [innerHTML]="bike.imgUrl">
-          </div>
+
 
           <div class="slide-footer">
             <div class="bike-shipping">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { SubscriptionLike } from 'rxjs';
 import { Bike } from '../../interfaces/bikes';
@@ -9,8 +9,9 @@ import { DataService } from '../../services/data.service';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit, OnDestroy {
   subscription: SubscriptionLike;
+  showDetails = false;
 
   constructor(private router: Router, private dataService: DataService) {}
   bikes: any[];
@@ -43,6 +44,4 @@ export class MainPageComponent implements OnInit {
     this.selectedBike = bike;
     this.router.navigate(['/bike', this.selectedBike.id]);
   }
-
-  showDetails: boolean = false;
 }

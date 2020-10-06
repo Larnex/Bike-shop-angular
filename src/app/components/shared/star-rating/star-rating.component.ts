@@ -17,15 +17,15 @@ export class StarRatingComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onStarEnter() {
+  onStarEnter(): void {
     this.starEnter.emit(this.starId);
   }
 
-  onStarLeave() {
+  onStarLeave(): void {
     this.starLeave.emit();
   }
 
-  onStarClicked() {
+  onStarClicked(): void {
     this.starClicked.emit(this.starId);
   }
 }

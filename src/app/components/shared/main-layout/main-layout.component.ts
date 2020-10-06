@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainLayoutComponent implements OnInit {
   sourceVideo = '../../../assets/images/bike.mp4';
-  navbarOpen: boolean = false;
+  navbarOpen = false;
   public innerWidth: any;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  showNavbar() {
+  showNavbar(): void {
     this.navbarOpen = !this.navbarOpen;
   }
 }

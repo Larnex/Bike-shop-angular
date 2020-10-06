@@ -1,6 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Bike } from '../../../interfaces/bikes';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { SubscriptionLike } from 'rxjs';
 import { DataService } from '../../../services/data.service';
 import { NgForm } from '@angular/forms';
@@ -12,7 +17,7 @@ import { FormService } from '../service/form.service';
   templateUrl: './order-form.component.html',
   styleUrls: ['./order-form.component.scss'],
 })
-export class OrderFormComponent implements OnInit {
+export class OrderFormComponent implements OnInit, OnDestroy {
   bikes: any[];
   subscription: SubscriptionLike;
   selectedValue: string;
@@ -44,11 +49,11 @@ export class OrderFormComponent implements OnInit {
     this.maxDate.setDate(this.minDate.getDate() + 7);
   }
 
-  addToday(event) {
+  addToday(event): void {
     event.stopPropagation();
     this.date = new Date();
   }
-  addTomorrow(event) {
+  addTomorrow(event): void {
     event.stopPropagation();
     this.date = new Date(new Date().setDate(new Date().getDate() + 1));
   }
@@ -80,40 +85,40 @@ export class OrderFormComponent implements OnInit {
     this.formService.currentForm.subscribe((form) => (this.form = form));
   }
 
-  assignDescription(event: any) {
+  assignDescription(event: any): void {
     this.firstFormGroup.get('name').setValue(event.value.name);
     this.firstFormGroup.get('description').setValue(event.value.description);
   }
 
-  get bikeName() {
+  get bikeName(): any {
     return this.firstFormGroup.get('name');
   }
 
-  get bikeDescription() {
+  get bikeDescription(): any {
     return this.firstFormGroup.get('description');
   }
 
-  get country() {
+  get country(): any {
     return this.secondFormGroup.get('country');
   }
 
-  get city() {
+  get city(): any {
     return this.secondFormGroup.get('city');
   }
 
-  get address() {
+  get address(): any {
     return this.secondFormGroup.get('address');
   }
 
-  get payment() {
+  get payment(): any {
     return this.thirdFormGroup.get('paymentType');
   }
 
-  get getDate() {
+  get getDate(): any {
     return this.fourthFormGroup.get('date');
   }
 
-  onSubmit(f: NgForm) {
+  onSubmit(f: NgForm): void {
     type newForm = {
       bikeName: string;
       bikeDescription: string;
@@ -137,7 +142,7 @@ export class OrderFormComponent implements OnInit {
     this.router.navigate(['/form/successful']);
   }
 
-  thisForm() {
+  thisForm(): void {
     this.formService.changeForm('order');
   }
 

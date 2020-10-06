@@ -17,11 +17,11 @@ export class ContactFormComponent implements OnInit {
     this.formService.currentForm.subscribe((form) => (this.form = form));
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.router.navigate(['/form/successful']);
   }
 
-  thisForm() {
+  thisForm(): void {
     this.formService.changeForm('contact');
   }
 }

@@ -12,7 +12,7 @@ export class AdminLayoutComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  logout(event) {
+  logout(event): void {
     event.preventDefault();
     this.auth.logout();
 

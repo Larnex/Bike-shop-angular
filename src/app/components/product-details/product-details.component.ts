@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Bike } from 'src/app/interfaces/bikes';
 import { DataService } from '../../services/data.service';
@@ -13,37 +13,39 @@ import { SubscriptionLike } from 'rxjs';
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
   // Icons
   faCart = faShoppingCart;
   faMagic = faMagic;
 
   subscription: SubscriptionLike;
   bike: any;
-  showReviews: Boolean = false;
-  zoomImage: Boolean = false;
+  showReviews = false;
+  zoomImage = false;
   descriptionLength = 100;
-  selectedColor: string = 'Select a color';
-  selectedSize: string = 'Select a size';
-
-  getRating(rate: number[]): number | null {
-    if (rate.length === 0) return 0;
-    return rate.map((x) => x['rating']).reduce((a, b) => a + b / rate.length);
-  }
+  selectedColor = 'Select a color';
+  selectedSize = 'Select a size';
 
   stars = [1, 2, 3, 4, 5];
   rating = 0;
   hoverState = 0;
 
-  onStarEnter(starId: number) {
+  getRating(rate: number[]): number | null {
+    if (rate.length === 0) {
+      return 0;
+    }
+    return rate.map((x) => x['rating']).reduce((a, b) => a + b / rate.length);
+  }
+
+  onStarEnter(starId: number): void {
     this.hoverState = starId;
   }
 
-  onStarLeave() {
+  onStarLeave(): void {
     this.hoverState = 0;
   }
 
-  onStarClicked(starId: number) {
+  onStarClicked(starId: number): void {
     this.rating = starId;
   }
 
@@ -64,8 +66,8 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      if (params['id'] !== undefined) {
-        let id = +params['id'];
+      if (params.id !== undefined) {
+        const id = +params.id;
         this.subscription = this.dataService
           .getBike(id)
           .subscribe((bike) => (this.bike = bike));
@@ -74,8 +76,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
     this.subscription.unsubscribe();
     this.subscription = null;
   }

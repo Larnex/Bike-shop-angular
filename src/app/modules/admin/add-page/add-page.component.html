@@ -1,11 +1,10 @@
 <form [formGroup]="form" (ngSubmit)="formSubmit()">
   <div class="form-control">
-    <quill-editor class="quill" formControlName="imgUrl" style="background-color: white; color: black"
-      placeholder="Image"></quill-editor>
+
+    <input type="file" (change)="uploadImage($event)">
+    <input type="text" style="display: none;" formControlName="imgUrl">
     <div *ngIf="form.get('imgUrl').touched && form.get('imgUrl').invalid">
-      <small *ngIf="form.get('imgUrl').errors.required">
-        Attach an image
-      </small>
+      <small *ngIf="form.get('imgUrl').errors.required">Upload an image</small>
     </div>
   </div>
 
