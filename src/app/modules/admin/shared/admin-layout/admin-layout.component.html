@@ -16,6 +16,9 @@
       </ul>
       <ul class="header-nav__list" *ngIf="auth.isAuthenticated(); else login">
         <li class="header-nav__item" routerLinkActive="active">
+          <a class="header-nav__item-link" [routerLink]="['/admin', 'dashboard']">DASHBOARD</a>
+        </li>
+        <li class="header-nav__item" routerLinkActive="active">
           <a class="header-nav__item-link" [routerLink]="['/admin', 'add']">ADD PRODUCT</a>
         </li>
         <li class="header-nav__item" routerLinkActive="active">

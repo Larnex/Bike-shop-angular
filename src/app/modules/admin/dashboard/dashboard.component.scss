@@ -1,0 +1,23 @@
+.container {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  height: auto;
+  color: white;
+
+
+  .products {
+    height: auto;
+    width: 100%;
+    margin-top: 1rem;
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+    }
+  }
+}

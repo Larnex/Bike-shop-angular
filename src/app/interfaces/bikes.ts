@@ -3,6 +3,7 @@ export interface Bike {
   imgUrl: string;
   price: number;
   discount: number;
+  key?: string;
   main: boolean;
   shop: string;
   name: string;

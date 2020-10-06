@@ -1,8 +1,5 @@
 <div class="header-content">
-  <!-- style="" -->
-  <!-- <carousel *ngIf="bikes" cellWidth="800"> -->
   <mdb-carousel [animation]="'slide'" *ngIf="bikes">
-    <!-- <div class="carousel-cell" > -->
     <mdb-carousel-item *ngFor="let bike of bikes">
       <div class="content-container">
         <div *ngIf="!showDetails" class="preview">
@@ -27,11 +24,7 @@
               <p *ngIf="bike.shipping !== null">{{ bike.shipping }}</p>
             </div>
             <div class="bike-btn">
-              <button
-                type="submit"
-                (click)="showBikeDetails(bike)"
-                class="bubbly-button"
-              >
+              <button type="submit" (click)="showBikeDetails(bike)" class="bubbly-button">
                 BUY
               </button>
             </div>
@@ -40,22 +33,17 @@
                 <p class="old-price">
                   {{ bike.price | currency: "EUR" }}
                 </p>
-                <p
-                  class="is-discount"
-                  [ngStyle]="{
+                <p class="is-discount" [ngStyle]="{
                     'background-color': getColor(bike.discount)
-                  }"
-                >
+                  }">
                   -{{ bike.discount }}%
                 </p>
               </div>
 
               <div class="discount-price">
-                <p
-                  [ngStyle]="{
+                <p [ngStyle]="{
                     color: getColor(bike.discount)
-                  }"
-                >
+                  }">
                   {{
                     bike.price - (bike.discount / 100) * bike.price
                       | currency: "EUR"
@@ -75,10 +63,7 @@
               <p>Colors:{{ bike.color }}</p>
               <p>Sizes: {{ bike.size }}</p>
             </div>
-            <div
-              class="description-container"
-              (mouseleave)="showDetails = false"
-            >
+            <div class="description-container" (mouseleave)="showDetails = false">
               <h1>About the bike:</h1>
               <p>{{ bike.description | charLimit }}</p>
             </div>

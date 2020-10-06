@@ -7,6 +7,7 @@ import { AddPageComponent } from './add-page/add-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthGuard } from 'src/app/guards/auth.guard';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EditPageComponent } from './edit-page/edit-page.component';
 
 @NgModule({
   imports: [
@@ -32,11 +33,27 @@ import { DashboardComponent } from './dashboard/dashboard.component';
             component: AddPageComponent,
             canActivate: [AuthGuard],
           },
+          {
+            path: 'dashboard',
+            component: DashboardComponent,
+            canActivate: [AuthGuard],
+          },
+          {
+            path: 'bike/:id/edit',
+            component: EditPageComponent,
+            canActivate: [AuthGuard],
+          },
         ],
       },
     ]),
   ],
   exports: [],
-  declarations: [AdminLayoutComponent, LoginPageComponent, AddPageComponent, DashboardComponent],
+  declarations: [
+    AdminLayoutComponent,
+    LoginPageComponent,
+    AddPageComponent,
+    DashboardComponent,
+    EditPageComponent,
+  ],
 })
 export class AdminModule {}

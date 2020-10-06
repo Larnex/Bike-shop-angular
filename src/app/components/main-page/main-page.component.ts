@@ -37,7 +37,7 @@ export class MainPageComponent implements OnInit, OnDestroy {
       this.subscription = null;
     }
   }
-
+  zzz;
   showBikeDetails(bike: Bike): void {
     this.selectedBike = bike;
     this.router.navigate(['/bike', this.selectedBike.id]);
