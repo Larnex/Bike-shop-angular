@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Subject } from 'rxjs';
-import { DataService } from 'src/app/services/data.service';
+
 import { Bike } from 'src/app/interfaces/bikes';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { AngularFireStorage } from '@angular/fire/storage';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-add-page',
@@ -14,21 +14,16 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class AddPageComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<void>();
   form: FormGroup;
-  bikes: any[];
   submitted = false;
-  link: string;
 
   colors = ['Black', 'Red', 'White', 'Blue', 'Yellow', 'Grey'];
   size = ['XXL', 'XL', 'L', 'M', 'S'];
 
-  constructor(
-    public dataService: DataService,
-    private storage: AngularFireStorage
-  ) {}
+  constructor(public dataService: DataService) {}
 
   ngOnInit(): void {
-    this.addFormControls();
     this.getId();
+    this.addFormControls();
   }
 
   ngOnDestroy(): void {
@@ -67,12 +62,11 @@ export class AddPageComponent implements OnInit, OnDestroy {
   uploadImage(event): void {
     const file = event.target.files[0];
     const filePath = `/${file.name}`;
-    const ref = this.storage.ref(filePath);
-    this.storage.upload(filePath, file).then((res) => {
-      ref
-        .getDownloadURL()
-        .subscribe((link) => this.form.get('imgUrl').setValue(link));
-    });
+
+    this.dataService
+      .uploadImage(file, filePath)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((link) => this.form.get('imgUrl').setValue(link));
   }
 
   addCheckboxData(event): void {

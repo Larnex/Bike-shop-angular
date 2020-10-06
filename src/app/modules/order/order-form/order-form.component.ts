@@ -1,16 +1,12 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Bike } from '../../../interfaces/bikes';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import { SubscriptionLike } from 'rxjs';
-import { DataService } from '../../../services/data.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { Bike } from '../../../interfaces/bikes';
 import { FormService } from '../service/form.service';
+import { DataService } from '../../../services/data.service';
+import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-order-form',
@@ -18,11 +14,9 @@ import { FormService } from '../service/form.service';
   styleUrls: ['./order-form.component.scss'],
 })
 export class OrderFormComponent implements OnInit, OnDestroy {
-  bikes: any[];
+  bikes: Bike[];
   subscription: SubscriptionLike;
-  selectedValue: string;
   isLinear = true;
-  selectedBike: Object;
   form: string;
 
   firstFormGroup: FormGroup;

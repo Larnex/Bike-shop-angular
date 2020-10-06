@@ -1,8 +1,9 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, SubscriptionLike } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+
 import { Bike } from '../../interfaces/bikes';
 import { DataService } from '../../services/data.service';
+import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
@@ -37,9 +38,9 @@ export class MainPageComponent implements OnInit, OnDestroy {
       this.subscription = null;
     }
   }
-  zzz;
+
   showBikeDetails(bike: Bike): void {
     this.selectedBike = bike;
-    this.router.navigate(['/bike', this.selectedBike.id]);
+    this.router.navigate(['/bike', this.selectedBike.key]);
   }
 }
