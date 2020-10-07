@@ -1,40 +1,35 @@
-<div class="container">
+<div class="products">
+  <h2 class="text-center">Dashboard of products</h2>
 
-  <div class="products" *ngIf="products; else loading">
-    <h2>Dashboard of products</h2>
+  <table *ngIf="products; else loading">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Open</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
 
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Open</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
+    <tbody>
+      <tr *ngFor="let product of products; let i = index">
+        <td>{{product.key}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
 
-      <tbody>
-        <tr *ngFor="let product of products; let i = index">
-          <td>{{product.id}}</td>
-          <td>{{product.name}}</td>
-          <td>{{product.price}}</td>
-
-          <td>
-            <button class="btn" [routerLink]="['/admin', 'bike', 'product.key', 'edit']">Open</button>
-          </td>
-          <td>
-            <button class="delete-btn" (click)="removeProduct(product.key)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
-
+        <td>
+          <button class="btn btn-dark" [routerLink]="['/admin', 'bike', product.key, 'edit']">Edit</button>
+        </td>
+        <td>
+          <button class="btn btn-danger" (click)="removeProduct(product.key)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
   <!-- Loading -->
   <ng-template #loading>
-    <p class="loading" style="font-size: 8rem; text-align: center; margin-top: 25%;">Loading...</p>
+    <p class="loading" style="font-size: 8rem; text-align: center; margin-top: 12.5%;">Loading...</p>
   </ng-template>
 </div>

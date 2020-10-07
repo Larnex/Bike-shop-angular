@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { AngularFireDatabase } from '@angular/fire/database';
+
+import * as firebase from 'firebase';
+import { map } from 'rxjs/operators';
 import { Observable, Subject } from 'rxjs';
 import { Bike } from '../interfaces/bikes';
-import * as firebase from 'firebase';
-import { environment } from 'src/environments/environment';
-import { keyframes } from '@angular/animations';
-import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root',
@@ -43,6 +42,10 @@ export class DataService {
 
   deleteProduct(product) {
     this.db.list('/').remove(product);
+  }
+
+  updateProduct(bike: Bike) {
+    this.db.object(`${bike.key}`).update(bike);
   }
 
   uploadImage(file, filePath): Observable<string> {

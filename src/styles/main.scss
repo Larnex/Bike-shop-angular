@@ -13,6 +13,10 @@ $baby-blue: #f8faff;
   user-select: none;
 }
 
+.dropdown-button:focus {
+  outline: 0px !important;
+}
+
 html {
   font-size: 10px;
 }

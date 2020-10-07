@@ -1,5 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 import { Bike } from 'src/app/interfaces/bikes';
 import { Subject } from 'rxjs';
@@ -16,7 +22,7 @@ export class AddPageComponent implements OnInit, OnDestroy {
   form: FormGroup;
   submitted = false;
 
-  colors = ['Black', 'Red', 'White', 'Blue', 'Yellow', 'Grey'];
+  colors = ['Blue', 'Grey', 'Orange', 'Black', 'Green'];
   size = ['XXL', 'XL', 'L', 'M', 'S'];
 
   constructor(public dataService: DataService) {}
