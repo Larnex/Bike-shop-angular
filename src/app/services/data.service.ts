@@ -4,7 +4,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 
 import * as firebase from 'firebase';
 import { map } from 'rxjs/operators';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Bike } from '../interfaces/bikes';
 
 @Injectable({
@@ -36,11 +36,11 @@ export class DataService {
     );
   }
 
-  addProduct(product) {
+  addProduct(product: Bike) {
     this.db.list('/').push(product);
   }
 
-  deleteProduct(product) {
+  deleteProduct(product: Bike['key']) {
     this.db.list('/').remove(product);
   }
 

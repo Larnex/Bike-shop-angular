@@ -103,7 +103,7 @@ export class AddPageComponent implements OnInit, OnDestroy {
     }
 
     this.submitted = true;
-    const bike: Bike[] = this.form.value;
+    const bike: Bike = this.form.value;
     this.dataService.addProduct(bike);
   }
 }
