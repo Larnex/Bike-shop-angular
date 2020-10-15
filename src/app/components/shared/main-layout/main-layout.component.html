@@ -17,16 +17,16 @@
       <ul class="header-nav__list" [ngClass]="{'transform-list' : navbarOpen}">
         <li class="header-nav__item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
           true}">
-          <a [routerLink]="['/']" class="header-nav__item-link">MAIN PAGE</a>
+          <a [routerLink]="['/']" class="header-nav__item-link" (click)="showNavbar()">MAIN PAGE</a>
         </li>
         <li class="header-nav__item" routerLinkActive="active">
-          <a [routerLink]="['/contact']" class="header-nav__item-link">CONTACT US</a>
+          <a [routerLink]="['/contact']" class="header-nav__item-link" (click)="showNavbar()">CONTACT US</a>
         </li>
         <li class="header-nav__item" routerLinkActive="active">
-          <a [routerLink]="['/form/order']" class="header-nav__item-link">ORDER PAGE</a>
+          <a [routerLink]="['/form/order']" class="header-nav__item-link" (click)="showNavbar()">ORDER PAGE</a>
         </li>
         <li class="header-nav__item" routerLinkActive="active">
-          <a [routerLink]="['/admin']" class="header-nav__item-link">ADMIN LOGIN</a>
+          <a [routerLink]="['/admin']" class="header-nav__item-link" (click)="showNavbar()">ADMIN LOGIN</a>
         </li>
       </ul>
     </nav>
